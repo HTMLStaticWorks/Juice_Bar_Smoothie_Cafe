@@ -684,5 +684,25 @@ ZestUp
         });
     </script>
 
+
+    <!-- Simple Interaction Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const sidenav = document.getElementById('sidenav');
+
+            function toggleMenu() {
+                if (sidenav) {
+                    sidenav.classList.toggle('translate-x-full');
+                }
+            }
+
+            if (mobileMenuBtn && sidenav && closeMenuBtn) {
+                mobileMenuBtn.addEventListener('click', toggleMenu);
+                closeMenuBtn.addEventListener('click', toggleMenu);
+            }
+        });
+    </script>
 </body>
 </html>
