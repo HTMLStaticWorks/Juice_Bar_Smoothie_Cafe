@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ZestUp</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "var(--color-primary)",
+                        "inverse-primary": "var(--color-inverse-primary)",
+                        "primary-container": "var(--color-primary-container)",
+                        "on-primary-container": "var(--color-on-primary-container)",
+                        "primary-fixed-dim": "var(--color-primary-fixed-dim)",
+                        "surface": "var(--color-surface)",
+                        "background": "var(--color-background)",
+                        "on-surface": "var(--color-on-surface)",
+                        "inverse-on-surface": "var(--color-inverse-on-surface)",
+                        "on-background": "var(--color-on-background)",
+                        "on-surface-variant": "var(--color-on-surface-variant)",
+                        "outline-variant": "var(--color-outline-variant)",
+                        "surface-container-highest": "var(--color-surface-container-highest)",
+                        "inverse-surface": "var(--color-inverse-surface)",
+                        "surface-variant": "var(--color-surface-variant)",
+                        "surface-container-low": "var(--color-surface-container-low)",
+                        "surface-container": "var(--color-surface-container)",
+                        "secondary": "var(--color-secondary)",
+                        "secondary-container": "var(--color-secondary-container)",
+                        "on-secondary-container": "var(--color-on-secondary-container)",
+                        "tertiary": "var(--color-tertiary)",
+                        "tertiary-container": "var(--color-tertiary-container)",
+                        "on-tertiary-container": "var(--color-on-tertiary-container)",
+                        "on-primary": "var(--color-on-primary)",
+                        "on-secondary": "var(--color-on-secondary)",
+                        "on-tertiary": "var(--color-on-tertiary)",
+                        "error": "var(--color-error)",
+                        "on-error": "var(--color-on-error)",
+                        "error-container": "var(--color-error-container)",
+                        "on-error-container": "var(--color-on-error-container)"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "48px",
+                        "gutter": "24px",
+                        "section-gap": "80px",
+                        "margin-mobile": "16px",
+                        "container-max": "1200px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.surface');
+            color: theme('colors.on-surface');
+        }
+        
+        .dark body {
+            background-color: theme('colors.background');
+            color: theme('colors.inverse-on-surface');
+        }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .ambient-shadow {
+            box-shadow: 0 10px 30px -10px rgba(27, 94, 32, 0.08);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes fadeZoom {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .hero-animate {
+            animation: fadeZoom 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+    </style>
+<link href="logo.png" rel="icon" type="image/png"/>
+<style id="theme-vars">
+:root {
+  --color-primary: #16a34a;
+  --color-inverse-primary: #4ade80;
+  --color-primary-container: #dcfce7;
+  --color-on-primary-container: #14532d;
+  --color-primary-fixed-dim: #4ade80;
+  
+  --color-surface: #ffffff;
+  --color-background: #f8fafc;
+  --color-on-surface: #0f172a;
+  --color-inverse-on-surface: #f8fafc;
+  --color-on-background: #0f172a;
+  
+  --color-on-surface-variant: #475569;
+  --color-outline-variant: #94a3b8;
+  
+  --color-surface-container-highest: #e2e8f0;
+  --color-inverse-surface: #1e293b;
+  
+  --color-surface-variant: #f1f5f9;
+  --color-surface-container-low: #ffffff;
+  --color-surface-container: #f8fafc;
+  --color-surface-container-lowest: #ffffff;
+  
+  --color-secondary: #ea580c;
+  --color-secondary-container: #ffedd5;
+  --color-on-secondary-container: #9a3412;
+  
+  --color-tertiary: #db2777;
+  --color-tertiary-container: #fce7f3;
+  --color-on-tertiary-container: #9d174d;
+  
+  --color-on-primary: #ffffff;
+  --color-on-secondary: #ffffff;
+  --color-on-tertiary: #ffffff;
+  
+  --color-error: #dc2626;
+  --color-on-error: #ffffff;
+  --color-error-container: #fee2e2;
+  --color-on-error-container: #991b1b;
+}
+
+html.dark {
+  --color-primary: #4ade80;
+  --color-inverse-primary: #16a34a;
+  --color-primary-container: #14532d;
+  --color-on-primary-container: #dcfce7;
+  --color-primary-fixed-dim: #16a34a;
+  
+  --color-surface: #0f172a;
+  --color-background: #020617;
+  --color-on-surface: #f8fafc;
+  --color-inverse-on-surface: #0f172a;
+  --color-on-background: #f8fafc;
+  
+  --color-on-surface-variant: #94a3b8;
+  --color-outline-variant: #475569;
+  
+  --color-surface-container-highest: #1e293b;
+  --color-inverse-surface: #f1f5f9;
+  
+  --color-surface-variant: #1e293b;
+  --color-surface-container-low: #0f172a;
+  --color-surface-container: #0f172a;
+  --color-surface-container-lowest: #1e293b;
+  
+  --color-secondary: #f97316;
+  --color-secondary-container: #9a3412;
+  --color-on-secondary-container: #ffedd5;
+  
+  --color-tertiary: #f472b6;
+  --color-tertiary-container: #9d174d;
+  --color-on-tertiary-container: #fce7f3;
+  
+  --color-on-primary: #022c22;
+  --color-on-secondary: #431407;
+  --color-on-tertiary: #4c0519;
+  
+  --color-error: #ef4444;
+  --color-on-error: #450a0a;
+  --color-error-container: #991b1b;
+  --color-on-error-container: #fee2e2;
+}
+</style>
+
+</head>
+<body class="font-body-md text-body-md antialiased overflow-x-hidden pt-20">
+<!-- TopNavBar (Desktop) -->
+<nav class="hidden md:flex bg-surface dark:bg-background fixed top-0 left-0 w-full z-50 justify-between items-center px-margin-desktop h-20 bg-surface/90 dark:bg-background/90 backdrop-blur-md shadow-sm docked full-width top-0">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
+            ZestUp
+        </div>
+<ul class="flex items-center gap-gutter font-label-md text-label-md">
+<li><a class="text-primary dark:text-inverse-primary font-bold hover:scale-105 duration-200 block py-2 border-b-2 border-primary" href="index.html">Home</a></li><li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="about.html">Home 2</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="menu.html">Menu</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="services.html">Services</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="gallery.html">Gallery</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="blog.html">Blog</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="contact.html">Contact</a></li>
+</ul>
+<div class="flex items-center gap-4">
+<button class="theme-toggle-btn text-on-surface-variant dark:text-outline-variant hover:text-primary hover:scale-105 transition-transform duration-200">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<button class="rtl-toggle-btn text-on-surface-variant dark:text-outline-variant hover:text-primary hover:scale-105 transition-transform duration-200 font-label-md font-bold" title="Toggle RTL">
+  RTL
+</button>
+<a class="font-label-md text-label-md text-primary dark:text-inverse-primary hover:scale-105 transition-transform duration-200 inline-block" href="login.html">Login</a>
+<a class="font-label-md text-label-md bg-primary-container text-on-primary-container px-6 py-2 rounded-full hover:scale-105 transition-transform duration-200 inline-block" href="register.html">Sign Up</a>
+</div>
+</nav>
+<!-- Mobile Header (Trigger for SideNav) -->
+<header class="md:hidden fixed top-0 left-0 w-full z-40 bg-surface/90 backdrop-blur-md shadow-sm h-16 flex items-center justify-between px-margin-mobile">
+<div class="font-headline-md text-headline-md font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<button class="text-primary p-2" id="mobile-menu-btn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<!-- SideNavBar (Mobile Overlay) -->
+<aside class="fixed inset-y-0 right-0 z-[60] flex flex-col bg-surface-container-highest dark:bg-inverse-surface shadow-2xl docked full-height right-0 w-80 transform translate-x-full Slide from right transition-transform duration-300 ease-in-out" id="sidenav">
+<div class="p-6 flex justify-between items-center border-b border-outline-variant/30">
+<div>
+<div class=""><img alt="ZestUp Logo" class="h-8 md:h-10 w-auto object-contain" src="logo.png"/></div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Freshly Squeezed Daily</p>
+</div>
+<button class="text-on-surface-variant p-2 hover:bg-surface-variant rounded-full transition-colors" id="close-menu-btn">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="flex-1 overflow-y-auto py-4 font-label-md text-label-md">
+<a class="flex items-center gap-4 text-primary dark:text-inverse-primary bg-surface-variant dark:bg-on-surface-variant/10 px-4 py-3 mx-2 rounded-xl transition-colors font-bold" href="index.html">
+<span class="material-symbols-outlined">home</span>
+                Home
+            </a><a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="about.html">
+<span class="material-symbols-outlined">info</span>
+                Home 2
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="menu.html">
+<span class="material-symbols-outlined">restaurant_menu</span>
+                Menu
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="services.html">
+<span class="material-symbols-outlined">event_repeat</span>
+                Services
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="gallery.html">
+<span class="material-symbols-outlined">photo_library</span>
+                Gallery
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="blog.html">
+<span class="material-symbols-outlined">article</span>
+                Blog
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="contact.html">
+<span class="material-symbols-outlined">contact_support</span>
+                Contact
+            </a>
+<div class="mt-8 pt-4 border-t border-outline-variant/30">
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+                    Support
+                </a>
+</div>
+<button class="rtl-toggle-btn flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors w-[calc(100%-16px)] text-left font-bold">
+<span class="material-symbols-outlined">swap_horiz</span>
+    Toggle RTL
+</button>
+</nav>
+<div class="p-6">
+<a class="w-full font-label-md text-label-md bg-primary-container text-on-primary-container py-4 rounded-xl hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 transition-colors block text-center" href="register.html">
+                Sign Up Now
+            </a>
+</div>
+</aside>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[870px] flex items-center justify-center overflow-hidden py-section-gap px-margin-mobile md:px-margin-desktop">
+<div class="absolute inset-0 w-full h-full z-0">
+<div class="w-full h-full bg-cover bg-center opacity-20" data-alt="A vibrant, overhead shot of a freshly prepared tropical smoothie bowl, overflowing with bright exotic fruits like mango, dragonfruit, and kiwi. The scene is set on a clean, light wood surface, bathed in bright, natural morning sunlight to emphasize a fresh, organic aesthetic. Subtle splashes of vibrant green juice and scattered chia seeds add dynamic energy. The overall color palette features deep tropical greens and bright yellows, perfectly aligning with a premium, health-conscious modern brand identity." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDGk-TDz3_0dvMX1l9wsvzcubfxIEPo5DdejITMkuCXqFyzJCPG-VMZaZP0qIMiqpj68pNnZ_cLOP20KGngKzYxJSVT9WOhjPwDT_N2g_LL1Fg51J_ctXnOxjhZlH_BfNvT_NHU3dyA8y0apjltJtB43OklgEsi8WrYZUoC3FGLx2GQ9drQw3AOmt1sZ9W-5R0cHRt7kAW0OTy5784HI5VQbONv6jQOu3Ifbr8ddPdgWidgXziNSlqc')"></div>
+<!-- Gradient overlay to ensure text readability -->
+<div class="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background"></div>
+</div>
+<!-- Floating Decor elements -->
+<div class="absolute top-20 left-10 w-24 h-24 bg-secondary-container rounded-full blur-3xl opacity-40 floating-element z-0"></div>
+<div class="absolute bottom-40 right-20 w-40 h-40 bg-primary-container rounded-full blur-3xl opacity-30 floating-element z-0" style="animation-delay: -2s;"></div>
+<div class="relative z-10 max-w-container-max mx-auto text-center hero-animate flex flex-col items-center">
+<span class="font-label-md text-label-md text-tertiary-container tracking-widest uppercase mb-6 block bg-tertiary-fixed-dim/20 px-4 py-1 rounded-full border border-tertiary-container/30">100% Organic Ingredients</span>
+<h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary font-bold max-w-4xl mx-auto leading-tight mb-8">
+                    Pure Nature.<br/>
+<span class="text-secondary-fixed-dim">Pure Energy.</span><br/>
+                    Pure You.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
+                    Elevate your day with our cold-pressed juices and handcrafted smoothie bowls. Made fresh daily with ethically sourced, raw ingredients to nourish your body and mind.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+<button class="font-label-md text-label-md bg-primary-container text-on-primary-container px-8 py-4 rounded-xl hover:scale-105 hover:shadow-lg transition-all duration-300 w-full sm:w-auto">
+                        Explore Menu
+                    </button>
+<button class="font-label-md text-label-md border-2 border-primary text-primary px-8 py-4 rounded-xl hover:bg-primary/5 hover:scale-105 transition-all duration-300 w-full sm:w-auto">
+                        Order Now
+                    </button>
+</div>
+</div>
+</section>
+<!-- Featured Drinks Bento Grid -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">local_drink</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary font-bold">Featured Creations</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4 max-w-xl mx-auto">Discover our most loved blends, carefully crafted for optimal taste and nutritional benefits.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface rounded-2xl p-6 ambient-shadow hover:scale-[1.02] transition-transform duration-300 flex flex-col items-center text-center">
+<div class="w-full h-48 rounded-xl mb-6 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="A high-end product photography shot featuring a lineup of glass bottles filled with vibrant, cold-pressed juices. The colors range from deep leafy greens to bright citrus orange and deep beet red. The bottles sit on a sleek, minimalist white marble countertop under soft, diffused studio lighting. Condensation droplets on the glass suggest refreshing chill. The background is slightly out of focus, maintaining a clean, pure, and modern light-mode aesthetic suitable for a premium wellness brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7nO2HXgoGcdgtKAVRDrtIQRMDkl684cISsNO4eHUwEwKvjEUTzcsUxzvGPklBfovNrYXc6sWBkeJ7wiim5PF4lvQt1QjIa-jAA4iZdv5cXO-l_NJBChBvJLbV4FRInnRyQxI4OcBO6ADx2qi5ckjWPUG8xF-uciODSj4ccuzCusqkgN7CS-MXaB12epXgdg48xOvi2R4lCEhZi9LgqEBexCFVRpoiC1GVnYp-sdrZSx6aeJ-42ZVT"/>
+<div class="absolute top-4 right-4 bg-tertiary-container text-on-tertiary-container font-label-md text-[12px] px-3 py-1 rounded-full shadow-sm">
+                                Best Seller
+                            </div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold mb-2">The Emerald Elixir</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Kale, Spinach, Green Apple, Celery, Ginger &amp; Lemon.</p>
+<div class="mt-auto flex flex-col items-center gap-2 w-full pt-4 border-t border-outline-variant/20">
+<span class="font-label-md text-label-md text-secondary-fixed-dim">Detox &amp; Immunity</span>
+<span class="font-headline-md text-headline-md text-primary">$8.50</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface rounded-2xl p-6 ambient-shadow hover:scale-[1.02] transition-transform duration-300 flex flex-col items-center text-center">
+<div class="w-full h-48 rounded-xl mb-6 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="A meticulously arranged flat lay of raw, fresh organic ingredients used for juicing. Bright yellow lemons, deep green kale leaves, crisp apples, and vibrant ginger roots are arranged symmetrically on a pristine, crisp white surface. The lighting is bright and even, casting soft, ambient shadows with a subtle greenish tint. The composition is clean, airy, and highly structured, evoking a sense of purity, precision, and natural energy fitting for a modern premium wellness platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2vTupow05PjM0PF-WRCUF0FWPOycxvAGdRZcijXMM2MijeyIMF7hYRH0rzWQFm1ouQBUslh8KtDywrEJmCu4YPbnO1yK0UUfRHoVggAtBUebx6QTyHFw7sOXMF7m_gmP44XuuTKE1c0bJVWxSKP9zv0N9DfbHdEBA8k4zu2sWJtQPmepbzx-ip77gS3s1W3ISlGeMZxEwaLSrz8xoy6xEBK8VKJeoan9G6LPyK2BGo8uCaqnogRYx"/>
+<div class="absolute top-4 right-4 bg-primary-container text-on-primary-container font-label-md text-[12px] px-3 py-1 rounded-full shadow-sm">
+                                High Protein
+                            </div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold mb-2">Acai Power Bowl</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Organic Acai, Banana, Almond Milk, topped with House Granola.</p>
+<div class="mt-auto flex flex-col items-center gap-2 w-full pt-4 border-t border-outline-variant/20">
+<span class="font-label-md text-label-md text-secondary-fixed-dim">Energy Boost</span>
+<span class="font-headline-md text-headline-md text-primary">$11.00</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface rounded-2xl p-6 ambient-shadow hover:scale-[1.02] transition-transform duration-300 flex flex-col items-center text-center">
+<div class="w-full h-48 rounded-xl mb-6 overflow-hidden relative bg-surface-container-highest flex items-center justify-center">
+<!-- Using material icon as placeholder since we need 4 image prompts total and used 3 already, wait I can use 4 prompts -->
+<img class="w-full h-full object-cover" data-alt="A radiant, healthy young woman smiling brightly while holding a vibrant green detox smoothie in a clear eco-friendly cup. She is outdoors in a bright, sunlit park setting with soft, glowing sunlight filtering through green leaves, creating a fresh, organic atmosphere. She wears stylish, casual activewear. The image exudes vitality, pure energy, and wellness, utilizing a bright, high-key lighting style that complements a modern, corporate but tactile health brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIPtrg9iTd-D4GbBZxqeDXSYBEzt-fWBmS-GmaQozwL2l8vF4vFyfvFyn7ss2W6Vp_eEoTHv36yauCMJxN8bUtzETAE76y0ZKrjSZ2g4Fe-MF1cVnAyudAmjCvl1ShtSPZFstYVmWSi2Qj65TRhUha4ZKZr5R9wBm6x1AwLKqBysAC3JujzLWcxLWr2JS09ADr5kUIMoGVrkA3ZC4Oo9ZQLj9fbhRKqscsPKDuWap3SyYJZG81NlTh"/>
+<div class="absolute top-4 right-4 bg-secondary-container text-on-secondary-container font-label-md text-[12px] px-3 py-1 rounded-full shadow-sm">
+                                Seasonal
+                            </div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold mb-2">Tropical Radiance</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Mango, Pineapple, Turmeric, Coconut Water &amp; Black Pepper.</p>
+<div class="mt-auto flex flex-col items-center gap-2 w-full pt-4 border-t border-outline-variant/20">
+<span class="font-label-md text-label-md text-secondary-fixed-dim">Anti-Inflammatory</span>
+<span class="font-headline-md text-headline-md text-primary">$9.00</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">spa</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary font-bold">The Pure Promise</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="flex flex-col items-center text-center group">
+<div class="w-32 h-32 rounded-full overflow-hidden mb-6 shadow-lg border-4 border-surface-container-high group-hover:border-primary-container transition-colors duration-300">
+<img src="images/farm_fresh.png" alt="Farm Fresh Ingredients" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold mb-3">Farm Fresh Ingredients</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Sourced directly from local organic farmers to ensure peak nutritional value and exceptional taste in every sip.</p>
+</div>
+<div class="flex flex-col items-center text-center group">
+<div class="w-32 h-32 rounded-full overflow-hidden mb-6 shadow-lg border-4 border-surface-container-high group-hover:border-primary-container transition-colors duration-300">
+<img src="images/zero_preservatives.png" alt="Zero Preservatives" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold mb-3">Zero Preservatives</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">We believe in pure, unadulterated goodness. No hidden sugars, syrups, or artificial additives. Ever.</p>
+</div>
+<div class="flex flex-col items-center text-center group">
+<div class="w-32 h-32 rounded-full overflow-hidden mb-6 shadow-lg border-4 border-surface-container-high group-hover:border-primary-container transition-colors duration-300">
+<img src="images/crafted_daily.png" alt="Crafted Daily" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold mb-3">Crafted Daily</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Our cold-pressed juices and milks are made fresh every single morning for maximum enzyme retention and flavor.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Wellness Packs Showcase -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary font-bold">Curated Wellness Packs</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4 max-w-xl mx-auto">Thoughtfully assembled collections to support your specific wellness goals.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface rounded-2xl p-8 ambient-shadow hover:scale-[1.02] transition-transform duration-300 flex flex-col items-center text-center border-t-4 border-secondary-container">
+<img src="images/starter_kit.png" alt="The Starter Kit" class="w-full h-48 object-cover rounded-xl mb-6 shadow-sm" />
+<h3 class="font-headline-md text-headline-md text-primary font-bold mb-3">The Starter Kit</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">5 essential juices for beginners looking to introduce more greens into their routine.</p>
+<button class="mt-auto font-label-md text-label-md bg-primary-container text-on-primary-container px-6 py-3 rounded-xl hover:bg-primary hover:text-on-primary transition-colors duration-300 w-full">View Pack</button>
+</div>
+<div class="bg-surface rounded-2xl p-8 ambient-shadow hover:scale-[1.02] transition-transform duration-300 flex flex-col items-center text-center border-t-4 border-primary-container">
+<img src="images/deep_detox.png" alt="Deep Detox" class="w-full h-48 object-cover rounded-xl mb-6 shadow-sm" />
+<h3 class="font-headline-md text-headline-md text-primary font-bold mb-3">Deep Detox</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">A 7-day intense cleanse program designed to reset your system and boost vitality.</p>
+<button class="mt-auto font-label-md text-label-md bg-primary-container text-on-primary-container px-6 py-3 rounded-xl hover:bg-primary hover:text-on-primary transition-colors duration-300 w-full">View Pack</button>
+</div>
+<div class="bg-surface rounded-2xl p-8 ambient-shadow hover:scale-[1.02] transition-transform duration-300 flex flex-col items-center text-center border-t-4 border-tertiary-container">
+<img src="images/immunity_shield.png" alt="Immunity Shield" class="w-full h-48 object-cover rounded-xl mb-6 shadow-sm" />
+<h3 class="font-headline-md text-headline-md text-primary font-bold mb-3">Immunity Shield</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Focused on Vitamin C and Zinc-rich blends to keep your natural defenses strong.</p>
+<button class="mt-auto font-label-md text-label-md bg-primary-container text-on-primary-container px-6 py-3 rounded-xl hover:bg-primary hover:text-on-primary transition-colors duration-300 w-full">View Pack</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Customer Success Stories -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary font-bold">Real Results, Real People</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-surface-container-low p-8 rounded-2xl ambient-shadow">
+<div class="flex items-center gap-4 mb-6">
+<img src="images/sarah.png" alt="Sarah" class="w-12 h-12 rounded-full object-cover border-2 border-secondary-container" />
+<div>
+<h4 class="font-label-md text-label-md font-bold text-primary">Sarah</h4>
+<div class="flex text-secondary-fixed-dim text-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+</div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic">"Sarah lost 5lbs and gained 10x the energy after trying the Deep Detox program. Absolutely life-changing!"</p>
+</div>
+<div class="bg-surface-container-low p-8 rounded-2xl ambient-shadow">
+<div class="flex items-center gap-4 mb-6">
+<img src="images/mark.png" alt="Mark" class="w-12 h-12 rounded-full object-cover border-2 border-primary-container" />
+<div>
+<h4 class="font-label-md text-label-md font-bold text-primary">Mark</h4>
+<div class="flex text-secondary-fixed-dim text-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+</div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic">"Mark cleared his skin and improved his digestion significantly. The Starter Kit was just what I needed."</p>
+</div>
+<div class="bg-surface-container-low p-8 rounded-2xl ambient-shadow">
+<div class="flex items-center gap-4 mb-6">
+<img src="images/elena.png" alt="Elena" class="w-12 h-12 rounded-full object-cover border-2 border-tertiary-container" />
+<div>
+<h4 class="font-label-md text-label-md font-bold text-primary">Elena</h4>
+<div class="flex text-secondary-fixed-dim text-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 16px;">star</span>
+</div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic">"Elena found her daily focus with the Morning Glow shot. I can't start my workday without it now."</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Fresh Squeezed Process Timeline -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">schedule</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary font-bold">From Farm to Bottle in 24 Hours</h2>
+</div>
+<div class="relative">
+<!-- Connecting line -->
+<div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-outline-variant/30 -translate-y-1/2 z-0"></div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center mb-4 shadow-lg border-4 border-surface-container-low">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">compost</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold mb-2 text-lg">Sourced with Care</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Selecting the finest organic produce directly from local farms.</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center mb-4 shadow-lg border-4 border-surface-container-low">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">blender</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold mb-2 text-lg">Cold-Pressed Daily</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Maximum nutrient extraction through our specialized cold-press process.</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center mb-4 shadow-lg border-4 border-surface-container-low">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">recycling</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold mb-2 text-lg">Eco-Friendly Bottling</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Packaged in sustainable glass bottles ensuring zero waste.</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center mb-4 shadow-lg border-4 border-surface-container-low">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold mb-2 text-lg">Delivered Fresh</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">To your doorstep or ready for pickup within 24 hours of harvest.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Banner -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-primary-container text-on-primary-container relative overflow-hidden">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary-fixed/20 via-transparent to-transparent"></div>
+<div class="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center">
+<span class="material-symbols-outlined text-5xl mb-6" style="font-variation-settings: 'FILL' 1;">vital_signs</span>
+<h2 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl font-bold mb-6">Start Your Wellness Journey Today</h2>
+<p class="font-body-lg text-body-lg mb-10 opacity-90">Join our subscription program and get fresh, organic juices delivered straight to your door. Fuel your body with what it truly deserves.</p>
+<button class="font-label-md text-label-md bg-secondary-container text-on-secondary-container px-10 py-5 rounded-xl hover:scale-105 hover:bg-secondary-fixed transition-all duration-300 shadow-lg">
+                    View Subscription Plans
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container border-t border-outline-variant dark:border-on-surface-variant/20 w-full pt-16 pb-8 px-margin-mobile md:px-margin-desktop mt-auto">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="flex flex-col items-start text-left">
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim flex items-center gap-2 mb-4 hover:scale-105 transition-transform duration-200" href="index.html"><img alt="ZestUp Logo" class="h-8 md:h-10 w-auto object-contain" src="logo.png"/></a>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant mb-6">Crafting wellness, one sip at a time.</p>
+<div class="flex items-center gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-variant dark:bg-on-surface-variant/20 flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors" href="#">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-variant dark:bg-on-surface-variant/20 flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors" href="#">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+</div>
+</div>
+<div class="flex flex-col items-start">
+<h4 class="font-label-md text-label-md text-on-surface dark:text-inverse-surface font-bold mb-6 uppercase tracking-wider">Quick Links</h4>
+<ul class="flex flex-col gap-4 font-body-md text-body-md w-full">
+<li><a class="text-primary dark:text-primary-fixed-dim font-bold border-l-2 border-primary pl-3 block w-full text-left transition-colors" href="index.html">Home</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="menu.html">Menu</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="services.html">Services</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="gallery.html">Gallery</a></li>
+</ul>
+</div>
+<div class="flex flex-col items-start">
+<h4 class="font-label-md text-label-md text-on-surface dark:text-inverse-surface font-bold mb-6 uppercase tracking-wider">Company</h4>
+<ul class="flex flex-col gap-4 font-body-md text-body-md w-full">
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="about.html">Home 2</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="blog.html">Blog</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="contact.html">Contact Us</a></li>
+</ul>
+</div>
+<div class="flex flex-col items-start">
+<h4 class="font-label-md text-label-md text-on-surface dark:text-inverse-surface font-bold mb-6 uppercase tracking-wider">Stay Refreshed</h4>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant mb-4">Subscribe to our newsletter for the latest recipes and exclusive offers.</p>
+<form class="w-full flex gap-2">
+<input class="w-full px-4 py-3 rounded-lg border-2 border-outline-variant bg-surface dark:bg-surface-container-highest focus:border-primary focus:ring-0 transition-colors font-body-md text-body-md outline-none" placeholder="Your email" required="" type="email"/>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-lg font-label-md font-bold hover:scale-105 transition-transform duration-200" type="submit">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</form>
+</div>
+</div>
+<div class="max-w-container-max mx-auto border-t border-outline-variant dark:border-on-surface-variant/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-md text-label-md text-on-surface-variant/70 dark:text-outline-variant/70 text-center md:text-left">
+            © 2026 ZestUp. All rights reserved.
+        </p>
+<div class="flex items-center gap-6">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors" href="index.html">Privacy Policy</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors" href="index.html">Terms of Service</a>
+</div>
+</div>
+</footer>
+<!-- Simple Interaction Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const sidenav = document.getElementById('sidenav');
+
+            function toggleMenu() {
+                sidenav.classList.toggle('translate-x-full');
+            }
+
+            if (mobileMenuBtn && sidenav && closeMenuBtn) {
+                mobileMenuBtn.addEventListener('click', toggleMenu);
+                closeMenuBtn.addEventListener('click', toggleMenu);
+            }
+        });
+    </script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const rtlBtns = document.querySelectorAll('.rtl-toggle-btn');
+        rtlBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.documentElement.dir = document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl';
+            });
+        });
+    });
+</script>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeBtns = document.querySelectorAll('.theme-toggle-btn');
+            
+            // Initial check
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+
+            // Update icons based on initial state
+            themeBtns.forEach(btn => {
+                const icon = btn.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    icon.textContent = document.documentElement.classList.contains('dark') ? 'light_mode' : 'dark_mode';
+                }
+                
+                btn.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    const isDark = document.documentElement.classList.contains('dark');
+                    
+                    if (isDark) {
+                        localStorage.theme = 'dark';
+                    } else {
+                        localStorage.theme = 'light';
+                    }
+                    
+                    // Update all buttons
+                    themeBtns.forEach(b => {
+                        const i = b.querySelector('.material-symbols-outlined');
+                        if (i) {
+                            i.textContent = isDark ? 'light_mode' : 'dark_mode';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+</body></html>

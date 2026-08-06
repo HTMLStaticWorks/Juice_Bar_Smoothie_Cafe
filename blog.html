@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ZestUp - Blog</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "var(--color-primary)",
+                        "inverse-primary": "var(--color-inverse-primary)",
+                        "primary-container": "var(--color-primary-container)",
+                        "on-primary-container": "var(--color-on-primary-container)",
+                        "primary-fixed-dim": "var(--color-primary-fixed-dim)",
+                        "surface": "var(--color-surface)",
+                        "background": "var(--color-background)",
+                        "on-surface": "var(--color-on-surface)",
+                        "inverse-on-surface": "var(--color-inverse-on-surface)",
+                        "on-background": "var(--color-on-background)",
+                        "on-surface-variant": "var(--color-on-surface-variant)",
+                        "outline-variant": "var(--color-outline-variant)",
+                        "surface-container-highest": "var(--color-surface-container-highest)",
+                        "inverse-surface": "var(--color-inverse-surface)",
+                        "surface-variant": "var(--color-surface-variant)",
+                        "surface-container-low": "var(--color-surface-container-low)",
+                        "surface-container": "var(--color-surface-container)",
+                        "secondary": "var(--color-secondary)",
+                        "secondary-container": "var(--color-secondary-container)",
+                        "on-secondary-container": "var(--color-on-secondary-container)",
+                        "tertiary": "var(--color-tertiary)",
+                        "tertiary-container": "var(--color-tertiary-container)",
+                        "on-tertiary-container": "var(--color-on-tertiary-container)",
+                        "on-primary": "var(--color-on-primary)",
+                        "on-secondary": "var(--color-on-secondary)",
+                        "on-tertiary": "var(--color-on-tertiary)",
+                        "error": "var(--color-error)",
+                        "on-error": "var(--color-on-error)",
+                        "error-container": "var(--color-error-container)",
+                        "on-error-container": "var(--color-on-error-container)"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "margin-desktop": "48px",
+                        "gutter": "24px",
+                        "section-gap": "80px",
+                        "margin-mobile": "16px",
+                        "container-max": "1200px",
+                        "unit": "8px"
+                    },
+                    fontFamily: {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"]
+                    },
+                    fontSize: {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="logo.png" rel="icon" type="image/png"/>
+<style id="theme-vars">
+:root {
+  --color-primary: #16a34a;
+  --color-inverse-primary: #4ade80;
+  --color-primary-container: #dcfce7;
+  --color-on-primary-container: #14532d;
+  --color-primary-fixed-dim: #4ade80;
+  
+  --color-surface: #ffffff;
+  --color-background: #f8fafc;
+  --color-on-surface: #0f172a;
+  --color-inverse-on-surface: #f8fafc;
+  --color-on-background: #0f172a;
+  
+  --color-on-surface-variant: #475569;
+  --color-outline-variant: #94a3b8;
+  
+  --color-surface-container-highest: #e2e8f0;
+  --color-inverse-surface: #1e293b;
+  
+  --color-surface-variant: #f1f5f9;
+  --color-surface-container-low: #ffffff;
+  --color-surface-container: #f8fafc;
+  --color-surface-container-lowest: #ffffff;
+  
+  --color-secondary: #ea580c;
+  --color-secondary-container: #ffedd5;
+  --color-on-secondary-container: #9a3412;
+  
+  --color-tertiary: #db2777;
+  --color-tertiary-container: #fce7f3;
+  --color-on-tertiary-container: #9d174d;
+  
+  --color-on-primary: #ffffff;
+  --color-on-secondary: #ffffff;
+  --color-on-tertiary: #ffffff;
+  
+  --color-error: #dc2626;
+  --color-on-error: #ffffff;
+  --color-error-container: #fee2e2;
+  --color-on-error-container: #991b1b;
+}
+
+html.dark {
+  --color-primary: #4ade80;
+  --color-inverse-primary: #16a34a;
+  --color-primary-container: #14532d;
+  --color-on-primary-container: #dcfce7;
+  --color-primary-fixed-dim: #16a34a;
+  
+  --color-surface: #0f172a;
+  --color-background: #020617;
+  --color-on-surface: #f8fafc;
+  --color-inverse-on-surface: #0f172a;
+  --color-on-background: #f8fafc;
+  
+  --color-on-surface-variant: #94a3b8;
+  --color-outline-variant: #475569;
+  
+  --color-surface-container-highest: #1e293b;
+  --color-inverse-surface: #f1f5f9;
+  
+  --color-surface-variant: #1e293b;
+  --color-surface-container-low: #0f172a;
+  --color-surface-container: #0f172a;
+  --color-surface-container-lowest: #1e293b;
+  
+  --color-secondary: #f97316;
+  --color-secondary-container: #9a3412;
+  --color-on-secondary-container: #ffedd5;
+  
+  --color-tertiary: #f472b6;
+  --color-tertiary-container: #9d174d;
+  --color-on-tertiary-container: #fce7f3;
+  
+  --color-on-primary: #022c22;
+  --color-on-secondary: #431407;
+  --color-on-tertiary: #4c0519;
+  
+  --color-error: #ef4444;
+  --color-on-error: #450a0a;
+  --color-error-container: #991b1b;
+  --color-on-error-container: #fee2e2;
+}
+</style>
+
+</head>
+<body class="bg-background text-on-background antialiased pt-20">
+<!-- TopNavBar (Desktop) -->
+<nav class="hidden md:flex bg-surface dark:bg-background fixed top-0 left-0 w-full z-50 justify-between items-center px-margin-desktop h-20 bg-surface/90 dark:bg-background/90 backdrop-blur-md shadow-sm docked full-width top-0">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
+            ZestUp
+        </div>
+<ul class="flex items-center gap-gutter font-label-md text-label-md">
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="index.html">Home</a></li><li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="about.html">Home 2</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="menu.html">Menu</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="services.html">Services</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="gallery.html">Gallery</a></li>
+<li><a class="text-primary dark:text-inverse-primary font-bold hover:scale-105 duration-200 block py-2 border-b-2 border-primary" href="blog.html">Blog</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="contact.html">Contact</a></li>
+</ul>
+<div class="flex items-center gap-4">
+<button class="theme-toggle-btn text-on-surface-variant dark:text-outline-variant hover:text-primary hover:scale-105 transition-transform duration-200">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<button class="rtl-toggle-btn text-on-surface-variant dark:text-outline-variant hover:text-primary hover:scale-105 transition-transform duration-200 font-label-md font-bold" title="Toggle RTL">
+  RTL
+</button>
+<a class="font-label-md text-label-md text-primary dark:text-inverse-primary hover:scale-105 transition-transform duration-200 inline-block" href="login.html">Login</a>
+<a class="font-label-md text-label-md bg-primary-container text-on-primary-container px-6 py-2 rounded-full hover:scale-105 transition-transform duration-200 inline-block" href="register.html">Sign Up</a>
+</div>
+</nav>
+<!-- Mobile Header (Trigger for SideNav) -->
+<header class="md:hidden fixed top-0 left-0 w-full z-40 bg-surface/90 backdrop-blur-md shadow-sm h-16 flex items-center justify-between px-margin-mobile">
+<div class="font-headline-md text-headline-md font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<button class="text-primary p-2" id="mobile-menu-btn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<!-- SideNavBar (Mobile Overlay) -->
+<aside class="fixed inset-y-0 right-0 z-[60] flex flex-col bg-surface-container-highest dark:bg-inverse-surface shadow-2xl docked full-height right-0 w-80 transform translate-x-full Slide from right transition-transform duration-300 ease-in-out" id="sidenav">
+<div class="p-6 flex justify-between items-center border-b border-outline-variant/30">
+<div>
+<div class=""><img alt="ZestUp Logo" class="h-8 md:h-10 w-auto object-contain" src="logo.png"/></div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Freshly Squeezed Daily</p>
+</div>
+<button class="text-on-surface-variant p-2 hover:bg-surface-variant rounded-full transition-colors" id="close-menu-btn">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="flex-1 overflow-y-auto py-4 font-label-md text-label-md">
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="index.html">
+<span class="material-symbols-outlined">home</span>
+                Home
+            </a><a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="about.html">
+<span class="material-symbols-outlined">info</span>
+                Home 2
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="menu.html">
+<span class="material-symbols-outlined">restaurant_menu</span>
+                Menu
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="services.html">
+<span class="material-symbols-outlined">event_repeat</span>
+                Services
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="gallery.html">
+<span class="material-symbols-outlined">photo_library</span>
+                Gallery
+            </a>
+<a class="flex items-center gap-4 text-primary dark:text-inverse-primary bg-surface-variant dark:bg-on-surface-variant/10 px-4 py-3 mx-2 rounded-xl transition-colors font-bold" href="blog.html">
+<span class="material-symbols-outlined">article</span>
+                Blog
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="contact.html">
+<span class="material-symbols-outlined">contact_support</span>
+                Contact
+            </a>
+<div class="mt-8 pt-4 border-t border-outline-variant/30">
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+                    Support
+                </a>
+</div>
+<button class="rtl-toggle-btn flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors w-[calc(100%-16px)] text-left font-bold">
+<span class="material-symbols-outlined">swap_horiz</span>
+    Toggle RTL
+</button>
+</nav>
+<div class="p-6">
+<a class="w-full font-label-md text-label-md bg-primary-container text-on-primary-container py-4 rounded-xl hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 transition-colors block text-center" href="register.html">
+                Sign Up Now
+            </a>
+</div>
+</aside>
+<main>
+<!-- Main Content Canvas -->
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap pb-32">
+<!-- Header -->
+<header class="text-center mb-16 flex flex-col items-center">
+<h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary mb-4">The Fresh Press</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-8">Nourishing tips, delicious recipes, and wellness insights from the ZestUp community.</p>
+<!-- Search & Filters -->
+<div class="w-full max-w-2xl flex flex-col items-center gap-6">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-12 pr-4 py-3 rounded-full border-2 border-outline bg-surface-container-lowest focus:border-secondary-container focus:ring-0 focus:outline-none transition-colors font-body-md text-body-md text-on-surface" placeholder="Search articles..." type="text"/>
+</div>
+<div class="flex flex-wrap justify-center gap-3">
+<button class="px-4 py-2 rounded-full font-label-md text-label-md bg-primary text-on-primary hover:scale-105 transition-transform duration-200">All</button>
+<button class="px-4 py-2 rounded-full font-label-md text-label-md border-2 border-primary text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors">Nutrition</button>
+<button class="px-4 py-2 rounded-full font-label-md text-label-md border-2 border-primary text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors">Recipes</button>
+<button class="px-4 py-2 rounded-full font-label-md text-label-md border-2 border-primary text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors">Wellness Tips</button>
+<button class="px-4 py-2 rounded-full font-label-md text-label-md border-2 border-primary text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors">News</button>
+</div>
+</div>
+</header>
+<!-- Bento Grid Blog Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-16">
+<!-- Featured Post (Spans 8 cols) -->
+<article class="md:col-span-8 bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30">
+<div class="h-64 md:h-80 w-full relative">
+<img class="w-full h-full object-cover" data-alt="A beautifully styled overhead shot of a vibrant green smoothie bowl topped with fresh kiwi, chia seeds, and coconut flakes, sitting on a natural wood table next to a small potted plant. The lighting is bright and airy, characteristic of a high-end wellness cafe, with a pristine, fresh aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm1Uk9j9Rc4JA6qy1_pOnZ_z8vX-hjLyWzj0Er4sQrT1DNGXElFRURmNMthyJgwkKwZTnlG9OhyFg7z4l3oTrI-tyD_adE-lbfBmBohIBbRLi2xXK9Bw-D-obu1x743ttqy_mjiQJ7qYyRbVCrH9GHfCrSmDA2xXEOFIDKThBH9v_6Qogj5O1acNSRUP7rGttfeg_IDLqy_GgL984N1rshigKus912mar7UwzUO1KdO-VJM7BB_HIS"/>
+<div class="absolute top-4 left-4 bg-tertiary text-on-tertiary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm">Nutrition</div>
+</div>
+<div class="p-6 md:p-8 flex-grow flex flex-col justify-center items-center text-center">
+<h2 class="font-headline-lg text-headline-md md:text-headline-lg text-primary mb-3">The Power of Chlorophyll: Why Green Means Go</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">Discover the incredible detoxifying and energizing benefits of chlorophyll-rich foods. We dive into the science behind our signature Green Glow juice and how it supports your daily vitality.</p>
+<span class="font-label-md text-label-md text-primary-container mt-auto">Read Article →</span>
+</div>
+</article>
+<!-- Secondary Post (Spans 4 cols) -->
+<article class="md:col-span-4 bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30">
+<div class="h-48 w-full relative">
+<img class="w-full h-full object-cover" data-alt="A close up shot of a perfectly layered acai bowl in a clear glass jar, showing vibrant purple acai base, homemade granola, fresh berries, and a drizzle of almond butter. Shot in a bright, modern light-mode setting with soft morning sunlight highlighting the textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3eE8ITeENpEI4RGfQgZvLwofIfD7SyOS6PRt1WT_68GGwP6pBAeZ_L0LViYFXRumFRqOy751AWz8F4tRikfVUIigRpWiPIK-Tktod8S8MuLtUGZYJD4plfPDyeu58giaigHczxzG_ELENqvZLJ01XPS2p8YoYZb6XblQ06vd_cX1aO72bSFwa4p8_3TjpcOgRN9PwY0RsNqDQItbBrqBfopZq3GUtq4zSfbypX9y8nNmri5dj-ANM"/>
+<div class="absolute top-4 left-4 bg-tertiary text-on-tertiary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm">Recipes</div>
+</div>
+<div class="p-6 flex-grow flex flex-col justify-center items-center text-center">
+<h3 class="font-headline-md text-headline-md text-primary mb-3">5-Minute Acai Bowl Perfection</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Master the art of the perfect texture and topping ratio for your morning acai bowl at home.</p>
+<span class="font-label-md text-label-md text-primary-container mt-auto">Read Article →</span>
+</div>
+</article>
+<!-- Standard Grid Posts -->
+<article class="md:col-span-4 bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30">
+<div class="h-48 w-full relative">
+<img class="w-full h-full object-cover" data-alt="A serene yoga setting showing a person meditating by a large window with natural light pouring in. Beside them is a tall glass of bright orange cold-pressed juice on a sleek, minimal white side table. The mood is calm, focusing on holistic wellness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy3NtaWTWHSgIOv848VgxO2tPhz26WJyHqt0QsaKPNdVXwoBWRMyCsbIP9IV4B35jGdOg24AivkIXKUad3Fz8kFek9jnux5hGv4B0WCGgF5K3_LhpqP38dY3gYLE7nVxvxri7A5Y0wECdUsqr0B8MgKJKQKQ7yPS53PJ52RPl8hnaVY_yGYhx7kR9gjqK3wvOPfUYe4YAG-OEbzCu3Y73rvMFg2yx0IQmiAXXMxnSAQBlysknW_o23"/>
+<div class="absolute top-4 left-4 bg-tertiary text-on-tertiary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm">Wellness Tips</div>
+</div>
+<div class="p-6 flex-grow flex flex-col justify-center items-center text-center">
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Morning Rituals for Sustained Energy</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Start your day right with simple mindful practices paired with the perfect hydration strategy.</p>
+<span class="font-label-md text-label-md text-primary-container mt-auto">Read Article →</span>
+</div>
+</article>
+<article class="md:col-span-4 bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30">
+<div class="h-48 w-full relative">
+<img class="w-full h-full object-cover" data-alt="A vibrant shot of fresh, whole produce including bright oranges, leafy kale, deep red beets, and crisp apples arranged symmetrically on a clean, light marble countertop. The image highlights the premium, organic quality of raw ingredients used in juicing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpQsIt9Wd1viRkR6K-IF4p7iRzrgdBZblyhSF9a4In0OAJWHkYo7n0JXtsjhwZACjK3uXCpZ0LbfDmzDODvFTC_8_iSpUBNu7v72XuaKHMB5kzDpNN9bC2cAJbsyI4m11g63PVdugRWbuaSYmioiqS4p4xOTEt_W_kFVgtaHflsolfsPhWX1Ms5N4LoqXP5eWcpQcZhFtouI2kYZJtsqRw6bCIKtmrhjGeSuh3HVc7ZHWvVwW6aGy1"/>
+<div class="absolute top-4 left-4 bg-tertiary text-on-tertiary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm">Nutrition</div>
+</div>
+<div class="p-6 flex-grow flex flex-col justify-center items-center text-center">
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Seasonal Ingredients You Need Now</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Why eating with the seasons matters for your nutrient intake and overall health.</p>
+<span class="font-label-md text-label-md text-primary-container mt-auto">Read Article →</span>
+</div>
+</article>
+<article class="md:col-span-4 bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30">
+<div class="h-48 w-full relative">
+<img class="w-full h-full object-cover" data-alt="A wide shot of a modern, beautifully designed juice bar interior. It features light wood accents, hanging green plants, and a bright, clean white counter. Customers are happily chatting while holding their colorful juice bottles. The aesthetic is premium, fresh, and welcoming." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASxAAOMph7wrcEsGl0P1C3AQHLK24IUAQHvEV5iik7evmXWhK5dCawcacd5eRa1n4lMhH0s8QokWTbrFb1xMe-d1B6GrGbFZwScljGMTgIrW7DDviebL4ByjZLa-J6v_ueAfA0cASvfSP61FIqhdcG5LvtNSp9-Kkal1hz7-eOSxSnwdFKdT4rjFvx0MFMuxXxcElx4ZqQoqLNNVQZmLnSr_BDc7Oh-vChSd0fDFo9vxPZYSXAGYy3"/>
+<div class="absolute top-4 left-4 bg-tertiary text-on-tertiary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm">News</div>
+</div>
+<div class="p-6 flex-grow flex flex-col justify-center items-center text-center">
+<h3 class="font-headline-md text-headline-md text-primary mb-3">New Location Opening Downtown</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">We are expanding! Come celebrate the grand opening of our newest cafe next week.</p>
+<span class="font-label-md text-label-md text-primary-container mt-auto">Read Article →</span>
+</div>
+</article>
+</div>
+<!-- Trending Now -->
+<section class="mb-16">
+<h2 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary mb-8 text-center">Trending Now</h2>
+<div class="flex overflow-x-auto gap-gutter pb-4 snap-x">
+<article class="min-w-[280px] md:min-w-[320px] bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30 snap-start shrink-0">
+<div class="p-6 flex-grow flex flex-col justify-center items-center text-center">
+<span class="bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm mb-4">Trending</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">The Ultimate Post-Workout Shake</h3>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-md text-label-md mt-auto">
+<span class="material-symbols-outlined text-[16px]">visibility</span> 12.4k Views
+            </div>
+</div>
+</article>
+<article class="min-w-[280px] md:min-w-[320px] bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30 snap-start shrink-0">
+<div class="p-6 flex-grow flex flex-col justify-center items-center text-center">
+<span class="bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm mb-4">Trending</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">5 Immune-Boosting Juices</h3>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-md text-label-md mt-auto">
+<span class="material-symbols-outlined text-[16px]">visibility</span> 9.8k Views
+            </div>
+</div>
+</article>
+<article class="min-w-[280px] md:min-w-[320px] bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30 snap-start shrink-0">
+<div class="p-6 flex-grow flex flex-col justify-center items-center text-center">
+<span class="bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm mb-4">Trending</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Understanding Macros in Smoothies</h3>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-md text-label-md mt-auto">
+<span class="material-symbols-outlined text-[16px]">visibility</span> 8.2k Views
+            </div>
+</div>
+</article>
+<article class="min-w-[280px] md:min-w-[320px] bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30 snap-start shrink-0">
+<div class="p-6 flex-grow flex flex-col justify-center items-center text-center">
+<span class="bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm mb-4">Trending</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Guide to Matcha Alternatives</h3>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-md text-label-md mt-auto">
+<span class="material-symbols-outlined text-[16px]">visibility</span> 7.5k Views
+            </div>
+</div>
+</article>
+</div>
+</section>
+<!-- Wellness Resource Center -->
+<section class="mb-16">
+<h2 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary mb-8 text-center">Wellness Resource Center</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col md:flex-row items-center text-center md:text-left gap-6 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 border border-outline-variant/30 cursor-pointer">
+<div class="w-16 h-16 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-3xl">picture_as_pdf</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">7-Day Detox Guide</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Jumpstart your wellness journey with our free comprehensive weekly guide.</p>
+<span class="font-label-md text-label-md text-primary-container">Download Free PDF</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col md:flex-row items-center text-center md:text-left gap-6 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 border border-outline-variant/30 cursor-pointer">
+<div class="w-16 h-16 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-3xl">menu_book</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Superfood Smoothie Recipes</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Over 20+ delicious recipes you can easily make right at home.</p>
+<span class="font-label-md text-label-md text-primary-container">Download E-Book</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Meet the Experts -->
+<section class="mb-16">
+<h2 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary mb-8 text-center">Meet the Experts</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col items-center text-center shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 border border-outline-variant/30">
+<img src="images/sarah.png" alt="Dr. Sarah Jenkins" class="w-24 h-24 rounded-full object-cover border-4 border-primary-container mb-4 shadow-sm" />
+<h3 class="font-headline-md text-headline-md text-primary mb-1">Dr. Sarah Jenkins</h3>
+<p class="font-label-md text-label-md text-tertiary mb-3">Registered Dietitian</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Specializing in plant-based nutrition and sustainable eating habits for over 10 years.</p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col items-center text-center shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 border border-outline-variant/30">
+<img src="images/mark.png" alt="Mark O'Connor" class="w-24 h-24 rounded-full object-cover border-4 border-primary-container mb-4 shadow-sm" />
+<h3 class="font-headline-md text-headline-md text-primary mb-1">Mark O'Connor</h3>
+<p class="font-label-md text-label-md text-tertiary mb-3">Holistic Wellness Coach</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Helping individuals find balance through mindful movement and holistic nutrition.</p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col items-center text-center shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 border border-outline-variant/30">
+<img src="images/elena.png" alt="Elena Rostova" class="w-24 h-24 rounded-full object-cover border-4 border-primary-container mb-4 shadow-sm" />
+<h3 class="font-headline-md text-headline-md text-primary mb-1">Elena Rostova</h3>
+<p class="font-label-md text-label-md text-tertiary mb-3">Sports Nutritionist</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Optimizing athletic performance and recovery through targeted dietary strategies.</p>
+</div>
+</div>
+</section>
+<!-- Pagination -->
+<div class="flex justify-center items-center gap-2 mt-12">
+<button class="w-10 h-10 rounded-full flex items-center justify-center border border-outline-variant text-on-surface-variant hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center bg-primary text-on-primary font-label-md text-label-md">1</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center border border-outline-variant text-on-surface-variant hover:bg-surface-variant transition-colors font-label-md text-label-md">2</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center border border-outline-variant text-on-surface-variant hover:bg-surface-variant transition-colors font-label-md text-label-md">3</button>
+<span class="text-on-surface-variant">...</span>
+<button class="w-10 h-10 rounded-full flex items-center justify-center border border-outline-variant text-on-surface-variant hover:bg-surface-variant transition-colors font-label-md text-label-md">8</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center border border-outline-variant text-on-surface-variant hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container border-t border-outline-variant dark:border-on-surface-variant/20 w-full pt-16 pb-8 px-margin-mobile md:px-margin-desktop mt-auto">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="flex flex-col items-start text-left">
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim flex items-center gap-2 mb-4 hover:scale-105 transition-transform duration-200" href="index.html"><img alt="ZestUp Logo" class="h-8 md:h-10 w-auto object-contain" src="logo.png"/></a>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant mb-6">Crafting wellness, one sip at a time.</p>
+<div class="flex items-center gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-variant dark:bg-on-surface-variant/20 flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors" href="#">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-variant dark:bg-on-surface-variant/20 flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors" href="#">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+</div>
+</div>
+<div class="flex flex-col items-start">
+<h4 class="font-label-md text-label-md text-on-surface dark:text-inverse-surface font-bold mb-6 uppercase tracking-wider">Quick Links</h4>
+<ul class="flex flex-col gap-4 font-body-md text-body-md w-full">
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="index.html">Home</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="menu.html">Menu</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="services.html">Services</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="gallery.html">Gallery</a></li>
+</ul>
+</div>
+<div class="flex flex-col items-start">
+<h4 class="font-label-md text-label-md text-on-surface dark:text-inverse-surface font-bold mb-6 uppercase tracking-wider">Company</h4>
+<ul class="flex flex-col gap-4 font-body-md text-body-md w-full">
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="about.html">Home 2</a></li>
+<li><a class="text-primary dark:text-primary-fixed-dim font-bold border-l-2 border-primary pl-3 block w-full text-left transition-colors" href="blog.html">Blog</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="contact.html">Contact Us</a></li>
+</ul>
+</div>
+<div class="flex flex-col items-start">
+<h4 class="font-label-md text-label-md text-on-surface dark:text-inverse-surface font-bold mb-6 uppercase tracking-wider">Stay Refreshed</h4>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant mb-4">Subscribe to our newsletter for the latest recipes and exclusive offers.</p>
+<form class="w-full flex gap-2">
+<input class="w-full px-4 py-3 rounded-lg border-2 border-outline-variant bg-surface dark:bg-surface-container-highest focus:border-primary focus:ring-0 transition-colors font-body-md text-body-md outline-none" placeholder="Your email" required="" type="email"/>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-lg font-label-md font-bold hover:scale-105 transition-transform duration-200" type="submit">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</form>
+</div>
+</div>
+<div class="max-w-container-max mx-auto border-t border-outline-variant dark:border-on-surface-variant/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-md text-label-md text-on-surface-variant/70 dark:text-outline-variant/70 text-center md:text-left">
+            © 2026 ZestUp. All rights reserved.
+        </p>
+<div class="flex items-center gap-6">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors" href="index.html">Privacy Policy</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors" href="index.html">Terms of Service</a>
+</div>
+</div>
+</footer>
+</main>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const rtlBtns = document.querySelectorAll('.rtl-toggle-btn');
+        rtlBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.documentElement.dir = document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl';
+            });
+        });
+    });
+</script>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeBtns = document.querySelectorAll('.theme-toggle-btn');
+            
+            // Initial check
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+
+            // Update icons based on initial state
+            themeBtns.forEach(btn => {
+                const icon = btn.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    icon.textContent = document.documentElement.classList.contains('dark') ? 'light_mode' : 'dark_mode';
+                }
+                
+                btn.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    const isDark = document.documentElement.classList.contains('dark');
+                    
+                    if (isDark) {
+                        localStorage.theme = 'dark';
+                    } else {
+                        localStorage.theme = 'light';
+                    }
+                    
+                    // Update all buttons
+                    themeBtns.forEach(b => {
+                        const i = b.querySelector('.material-symbols-outlined');
+                        if (i) {
+                            i.textContent = isDark ? 'light_mode' : 'dark_mode';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

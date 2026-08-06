@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Our Services | ZestUp</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                        "primary": "var(--color-primary)",
+                        "inverse-primary": "var(--color-inverse-primary)",
+                        "primary-container": "var(--color-primary-container)",
+                        "on-primary-container": "var(--color-on-primary-container)",
+                        "primary-fixed-dim": "var(--color-primary-fixed-dim)",
+                        "surface": "var(--color-surface)",
+                        "background": "var(--color-background)",
+                        "on-surface": "var(--color-on-surface)",
+                        "inverse-on-surface": "var(--color-inverse-on-surface)",
+                        "on-background": "var(--color-on-background)",
+                        "on-surface-variant": "var(--color-on-surface-variant)",
+                        "outline-variant": "var(--color-outline-variant)",
+                        "surface-container-highest": "var(--color-surface-container-highest)",
+                        "inverse-surface": "var(--color-inverse-surface)",
+                        "surface-variant": "var(--color-surface-variant)",
+                        "surface-container-low": "var(--color-surface-container-low)",
+                        "surface-container": "var(--color-surface-container)",
+                        "secondary": "var(--color-secondary)",
+                        "secondary-container": "var(--color-secondary-container)",
+                        "on-secondary-container": "var(--color-on-secondary-container)",
+                        "tertiary": "var(--color-tertiary)",
+                        "tertiary-container": "var(--color-tertiary-container)",
+                        "on-tertiary-container": "var(--color-on-tertiary-container)",
+                        "on-primary": "var(--color-on-primary)",
+                        "on-secondary": "var(--color-on-secondary)",
+                        "on-tertiary": "var(--color-on-tertiary)",
+                        "error": "var(--color-error)",
+                        "on-error": "var(--color-on-error)",
+                        "error-container": "var(--color-error-container)",
+                        "on-error-container": "var(--color-on-error-container)"
+                    },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "48px",
+                    "gutter": "24px",
+                    "section-gap": "80px",
+                    "margin-mobile": "16px",
+                    "container-max": "1200px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "headline-xl": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+           font-variation-settings: 'FILL' 1;
+        }
+        .lift-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .lift-hover:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 24px -8px rgba(27, 94, 32, 0.15);
+        }
+        .soft-shadow {
+            box-shadow: 0 4px 12px -4px rgba(27, 94, 32, 0.08);
+        }
+    </style>
+<link href="logo.png" rel="icon" type="image/png"/>
+<style id="theme-vars">
+:root {
+  --color-primary: #16a34a;
+  --color-inverse-primary: #4ade80;
+  --color-primary-container: #dcfce7;
+  --color-on-primary-container: #14532d;
+  --color-primary-fixed-dim: #4ade80;
+  
+  --color-surface: #ffffff;
+  --color-background: #f8fafc;
+  --color-on-surface: #0f172a;
+  --color-inverse-on-surface: #f8fafc;
+  --color-on-background: #0f172a;
+  
+  --color-on-surface-variant: #475569;
+  --color-outline-variant: #94a3b8;
+  
+  --color-surface-container-highest: #e2e8f0;
+  --color-inverse-surface: #1e293b;
+  
+  --color-surface-variant: #f1f5f9;
+  --color-surface-container-low: #ffffff;
+  --color-surface-container: #f8fafc;
+  --color-surface-container-lowest: #ffffff;
+  
+  --color-secondary: #ea580c;
+  --color-secondary-container: #ffedd5;
+  --color-on-secondary-container: #9a3412;
+  
+  --color-tertiary: #db2777;
+  --color-tertiary-container: #fce7f3;
+  --color-on-tertiary-container: #9d174d;
+  
+  --color-on-primary: #ffffff;
+  --color-on-secondary: #ffffff;
+  --color-on-tertiary: #ffffff;
+  
+  --color-error: #dc2626;
+  --color-on-error: #ffffff;
+  --color-error-container: #fee2e2;
+  --color-on-error-container: #991b1b;
+}
+
+html.dark {
+  --color-primary: #4ade80;
+  --color-inverse-primary: #16a34a;
+  --color-primary-container: #14532d;
+  --color-on-primary-container: #dcfce7;
+  --color-primary-fixed-dim: #16a34a;
+  
+  --color-surface: #0f172a;
+  --color-background: #020617;
+  --color-on-surface: #f8fafc;
+  --color-inverse-on-surface: #0f172a;
+  --color-on-background: #f8fafc;
+  
+  --color-on-surface-variant: #94a3b8;
+  --color-outline-variant: #475569;
+  
+  --color-surface-container-highest: #1e293b;
+  --color-inverse-surface: #f1f5f9;
+  
+  --color-surface-variant: #1e293b;
+  --color-surface-container-low: #0f172a;
+  --color-surface-container: #0f172a;
+  --color-surface-container-lowest: #1e293b;
+  
+  --color-secondary: #f97316;
+  --color-secondary-container: #9a3412;
+  --color-on-secondary-container: #ffedd5;
+  
+  --color-tertiary: #f472b6;
+  --color-tertiary-container: #9d174d;
+  --color-on-tertiary-container: #fce7f3;
+  
+  --color-on-primary: #022c22;
+  --color-on-secondary: #431407;
+  --color-on-tertiary: #4c0519;
+  
+  --color-error: #ef4444;
+  --color-on-error: #450a0a;
+  --color-error-container: #991b1b;
+  --color-on-error-container: #fee2e2;
+}
+</style>
+
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col pt-20">
+<!-- TopNavBar (Desktop) -->
+<nav class="hidden md:flex bg-surface dark:bg-background fixed top-0 left-0 w-full z-50 justify-between items-center px-margin-desktop h-20 bg-surface/90 dark:bg-background/90 backdrop-blur-md shadow-sm docked full-width top-0">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
+            ZestUp
+        </div>
+<ul class="flex items-center gap-gutter font-label-md text-label-md">
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="index.html">Home</a></li><li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="about.html">Home 2</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="menu.html">Menu</a></li>
+<li><a class="text-primary dark:text-inverse-primary font-bold hover:scale-105 duration-200 block py-2 border-b-2 border-primary" href="services.html">Services</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="gallery.html">Gallery</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="blog.html">Blog</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="contact.html">Contact</a></li>
+</ul>
+<div class="flex items-center gap-4">
+<button class="theme-toggle-btn text-on-surface-variant dark:text-outline-variant hover:text-primary hover:scale-105 transition-transform duration-200">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<button class="rtl-toggle-btn text-on-surface-variant dark:text-outline-variant hover:text-primary hover:scale-105 transition-transform duration-200 font-label-md font-bold" title="Toggle RTL">
+  RTL
+</button>
+<a class="font-label-md text-label-md text-primary dark:text-inverse-primary hover:scale-105 transition-transform duration-200 inline-block" href="login.html">Login</a>
+<a class="font-label-md text-label-md bg-primary-container text-on-primary-container px-6 py-2 rounded-full hover:scale-105 transition-transform duration-200 inline-block" href="register.html">Sign Up</a>
+</div>
+</nav>
+<!-- Mobile Header (Trigger for SideNav) -->
+<header class="md:hidden fixed top-0 left-0 w-full z-40 bg-surface/90 backdrop-blur-md shadow-sm h-16 flex items-center justify-between px-margin-mobile">
+<div class="font-headline-md text-headline-md font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<button class="text-primary p-2" id="mobile-menu-btn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<!-- SideNavBar (Mobile Overlay) -->
+<aside class="fixed inset-y-0 right-0 z-[60] flex flex-col bg-surface-container-highest dark:bg-inverse-surface shadow-2xl docked full-height right-0 w-80 transform translate-x-full Slide from right transition-transform duration-300 ease-in-out" id="sidenav">
+<div class="p-6 flex justify-between items-center border-b border-outline-variant/30">
+<div>
+<div class=""><img alt="ZestUp Logo" class="h-8 md:h-10 w-auto object-contain" src="logo.png"/></div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Freshly Squeezed Daily</p>
+</div>
+<button class="text-on-surface-variant p-2 hover:bg-surface-variant rounded-full transition-colors" id="close-menu-btn">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="flex-1 overflow-y-auto py-4 font-label-md text-label-md">
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="index.html">
+<span class="material-symbols-outlined">home</span>
+                Home
+            </a><a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="about.html">
+<span class="material-symbols-outlined">info</span>
+                Home 2
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="menu.html">
+<span class="material-symbols-outlined">restaurant_menu</span>
+                Menu
+            </a>
+<a class="flex items-center gap-4 text-primary dark:text-inverse-primary bg-surface-variant dark:bg-on-surface-variant/10 px-4 py-3 mx-2 rounded-xl transition-colors font-bold" href="services.html">
+<span class="material-symbols-outlined">event_repeat</span>
+                Services
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="gallery.html">
+<span class="material-symbols-outlined">photo_library</span>
+                Gallery
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="blog.html">
+<span class="material-symbols-outlined">article</span>
+                Blog
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="contact.html">
+<span class="material-symbols-outlined">contact_support</span>
+                Contact
+            </a>
+<div class="mt-8 pt-4 border-t border-outline-variant/30">
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+                    Support
+                </a>
+</div>
+<button class="rtl-toggle-btn flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors w-[calc(100%-16px)] text-left font-bold">
+<span class="material-symbols-outlined">swap_horiz</span>
+    Toggle RTL
+</button>
+</nav>
+<div class="p-6">
+<a class="w-full font-label-md text-label-md bg-primary-container text-on-primary-container py-4 rounded-xl hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 transition-colors block text-center" href="register.html">
+                Sign Up Now
+            </a>
+</div>
+</aside>
+<main>
+<!-- Main Content -->
+<main class="flex-grow pb-section-gap">
+<!-- Hero Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center flex flex-col items-center">
+<h1 class="font-headline-xl text-headline-xl text-primary mb-6 max-w-3xl">Crafting Wellness, One Sip at a Time.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-12">Explore our premium selection of organic services designed to nourish your body, energize your day, and elevate your workplace.</p>
+</section>
+<!-- Services Bento Grid -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col items-center text-center lift-hover soft-shadow border border-surface-dim/50 cursor-pointer group">
+<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxUVYrtK6-qk5NqNIcMp8WJ1ra57iOU63Aro-VJg1XyDDXIH3kNgriraE32nZBNvG3bwvt7n51K3O2rrZU7WEuKqZVTCRIplV9Ta35QtlE7gIPZF4aclBurnjFsYmonyQdFCh9NeboheUArrN3ZRWbiitpk-KdKScBuMqXVL60wevFDlybUaPhvbi8HT46cO0LuTGmFE5Z7Dxu3ph_UkgwGlv7glb_20Kr2E7pxke6R1iRFDHwsVcv" alt="Cold Pressed Juice" class="w-32 h-32 rounded-full object-cover border-4 border-surface-container-high mb-6 shadow-sm group-hover:scale-105 group-hover:border-primary-container transition-all duration-300" />
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">Fresh Cold-Pressed Juices</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Extracted daily from locally sourced, 100% organic produce to retain maximum nutrients and vibrant flavor profiles.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col items-center text-center lift-hover soft-shadow border border-surface-dim/50 cursor-pointer group">
+<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH1K4w4k3j236-4O6-J23z-Q0987-E885_I36-I822_C8Z9_4R-59-90--T90G04-Q-I2V52R3-0K98--S63H2-O39U4_R1I_820I9Q0045269O7R27341G35K1" alt="Smoothie Bowl" class="w-32 h-32 rounded-full object-cover border-4 border-surface-container-high mb-6 shadow-sm group-hover:scale-105 group-hover:border-primary-container transition-all duration-300" />
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">Custom Smoothie Bowls</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Thick, creamy blends topped with house-made granola, fresh berries, and superfood seeds. Built entirely to your taste.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-primary text-on-primary rounded-xl p-8 flex flex-col items-center text-center lift-hover shadow-lg cursor-pointer group lg:row-span-2 flex justify-center">
+<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBs8gKV6Q0S2cE8-NOv58E3FPvu1PzkwbZWvIgjQbNl-Y1ZLAdv-YLBTIpwWAPHKRRcmRaoqIRDoNDrxCDN3je8AUcWOMg2eOnbNAYc8uW_4l0SU7zBduZcjE07FBfQ_CJPAlgYXiAxZEhbPV9PrE_MwwLNVbNgEs34pmXt2FNTFMWG2b8opBMh4hireZUaQVY_21FuH23DUeLTziggtcLRPye5nZTwI08TfN98olhIWh7QS6K9ut5Q" alt="Office Catering" class="w-32 h-32 rounded-full object-cover border-4 border-white/20 mb-8 shadow-sm group-hover:scale-105 transition-all duration-300" />
+<h3 class="font-headline-lg text-headline-lg mb-4">Office Catering</h3>
+<p class="font-body-lg text-body-lg text-on-primary/90 mb-8">Boost team productivity and morale with our premium corporate wellness packages. Delivered fresh, directly to your boardroom.</p>
+<button class="mt-auto px-8 py-3 bg-secondary-container text-on-secondary-container font-label-md text-label-md rounded-full hover:bg-secondary-fixed transition-colors">Inquire Now</button>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col items-center text-center lift-hover soft-shadow border border-surface-dim/50 cursor-pointer group">
+<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5zOleIHvG9ixqD5AjY8OkVKIbUfskY8hTZsNbkCf2YhQj01HgsBgyWw5KsPHwGYR78Tug7zk8vpYHaM-fFEeiuzm3s3rRHF9XdU73DvURxAJtYo9HEPhINjqOn0z-fSzFz_hPgxZcugVQ7hr_1Fewh0OcrQm0GJdh_8qWXGbqKFPoLQ5MBREPd6IOgrIRkpv2CKeQO3me1t7CbyZbfChPzXZ5288p3uYsBo7X_73oXp37zqj9cLrv" alt="Seasonal Menus" class="w-32 h-32 rounded-full object-cover border-4 border-surface-container-high mb-6 shadow-sm group-hover:scale-105 group-hover:border-primary-container transition-all duration-300" />
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">Seasonal Menus</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Rotating selections highlighting the peak flavors and nutritional benefits of the current harvest season.</p>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col items-center text-center lift-hover soft-shadow border border-surface-dim/50 cursor-pointer group">
+<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK-gR5HrxpnlAJlLnoF_RtK2-SK2hOWYfJ5Ic_L2OccE7gLdL8IAiabBVBG0xyTSBP2veSWcm0wYVMi7GBKahonEiLrWvNJL4-1v5h97CllWvJcZRLMpOukiqewEfyKNtJglniIowBWuoz99mfMqJBm3tM7ta92szEQDf6fKMaMpYz0dammM1VVFEl4p6qNOYrpFll3A3xxWhEgDr1qyX981FrXZHzy7SOBuHo0TuiE_Tnt64lo-FH" alt="Event Packages" class="w-32 h-32 rounded-full object-cover border-4 border-surface-container-high mb-6 shadow-sm group-hover:scale-105 group-hover:border-primary-container transition-all duration-300" />
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">Event Packages</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Elevate your next gathering with bespoke juice bars, mini-bowls, and holistic wellness shots for your guests.</p>
+</div>
+<!-- Card 6 -->
+<div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col items-center text-center lift-hover soft-shadow border border-surface-dim/50 cursor-pointer group lg:col-span-2">
+<img src="images/farm_fresh.png" alt="Delivery and Pickup" class="w-32 h-32 rounded-full object-cover border-4 border-surface-container-high mb-6 shadow-sm group-hover:scale-105 group-hover:border-primary-container transition-all duration-300" />
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">Delivery &amp; Pickup</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg">Seamless online ordering for rapid in-store pickup or reliable local delivery. Your daily dose of wellness, on your schedule.</p>
+</div>
+</div>
+</section>
+<!-- Office Catering Enquiry Form -->
+<section class="bg-surface-container-low py-section-gap px-margin-mobile md:px-margin-desktop border-t border-surface-dim/30">
+<div class="max-w-3xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Elevate Your Workplace</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Submit an enquiry for office catering and our corporate wellness team will respond within 24 hours.</p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl soft-shadow p-8 md:p-12 border border-surface-dim/50">
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Company Name -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2" for="company">Company Name</label>
+<input class="w-full rounded-lg border-2 border-outline-variant bg-transparent px-4 py-3 font-body-md text-body-md text-on-surface focus:border-secondary-container focus:ring-0 transition-colors" id="company" placeholder="e.g. Acme Corp" type="text"/>
+</div>
+<!-- Contact Person -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2" for="contact">Contact Person</label>
+<input class="w-full rounded-lg border-2 border-outline-variant bg-transparent px-4 py-3 font-body-md text-body-md text-on-surface focus:border-secondary-container focus:ring-0 transition-colors" id="contact" placeholder="Full Name" type="text"/>
+</div>
+<!-- Email -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2" for="email">Email Address</label>
+<input class="w-full rounded-lg border-2 border-outline-variant bg-transparent px-4 py-3 font-body-md text-body-md text-on-surface focus:border-secondary-container focus:ring-0 transition-colors" id="email" placeholder="work@company.com" type="email"/>
+</div>
+<!-- Phone -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2" for="phone">Phone Number</label>
+<input class="w-full rounded-lg border-2 border-outline-variant bg-transparent px-4 py-3 font-body-md text-body-md text-on-surface focus:border-secondary-container focus:ring-0 transition-colors" id="phone" placeholder="(555) 123-4567" type="tel"/>
+</div>
+<!-- Number of People -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2" for="people">Number of People</label>
+<select class="w-full rounded-lg border-2 border-outline-variant bg-transparent px-4 py-3 font-body-md text-body-md text-on-surface focus:border-secondary-container focus:ring-0 transition-colors" id="people">
+<option>10 - 25</option>
+<option>26 - 50</option>
+<option>51 - 100</option>
+<option>100+</option>
+</select>
+</div>
+<!-- Date -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2" for="date">Preferred Date</label>
+<input class="w-full rounded-lg border-2 border-outline-variant bg-transparent px-4 py-3 font-body-md text-body-md text-on-surface focus:border-secondary-container focus:ring-0 transition-colors text-on-surface-variant" id="date" type="date"/>
+</div>
+</div>
+<!-- Dietary Requirements -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-3">Dietary Requirements (Select all that apply)</label>
+<div class="flex flex-wrap gap-3">
+<label class="inline-flex items-center bg-surface-container-high px-4 py-2 rounded-full cursor-pointer hover:bg-surface-variant transition-colors has-[:checked]:bg-tertiary-container has-[:checked]:text-on-tertiary">
+<input class="sr-only" type="checkbox"/>
+<span class="font-label-md text-label-md">Vegan</span>
+</label>
+<label class="inline-flex items-center bg-surface-container-high px-4 py-2 rounded-full cursor-pointer hover:bg-surface-variant transition-colors has-[:checked]:bg-tertiary-container has-[:checked]:text-on-tertiary">
+<input class="sr-only" type="checkbox"/>
+<span class="font-label-md text-label-md">Gluten-Free</span>
+</label>
+<label class="inline-flex items-center bg-surface-container-high px-4 py-2 rounded-full cursor-pointer hover:bg-surface-variant transition-colors has-[:checked]:bg-tertiary-container has-[:checked]:text-on-tertiary">
+<input class="sr-only" type="checkbox"/>
+<span class="font-label-md text-label-md">Nut Allergies</span>
+</label>
+<label class="inline-flex items-center bg-surface-container-high px-4 py-2 rounded-full cursor-pointer hover:bg-surface-variant transition-colors has-[:checked]:bg-tertiary-container has-[:checked]:text-on-tertiary">
+<input class="sr-only" type="checkbox"/>
+<span class="font-label-md text-label-md">Dairy-Free</span>
+</label>
+</div>
+</div>
+<!-- Message -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2" for="message">Additional Details</label>
+<textarea class="w-full rounded-lg border-2 border-outline-variant bg-transparent px-4 py-3 font-body-md text-body-md text-on-surface focus:border-secondary-container focus:ring-0 transition-colors" id="message" placeholder="Tell us more about your event..." rows="4"></textarea>
+</div>
+<!-- Submit Button -->
+<div class="pt-4 flex justify-center">
+<button class="w-full md:w-auto px-12 py-4 bg-primary-container text-on-primary font-headline-md text-headline-md rounded-full hover:bg-primary transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1" type="submit">
+                                Submit Enquiry
+                            </button>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- Wellness Workshops Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Wellness Workshops</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Join our expert-led sessions to deepen your understanding of holistic health.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Workshop 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col items-center text-center lift-hover soft-shadow border border-surface-dim/50">
+<img src="images/starter_kit.png" alt="Nutrition 101" class="w-24 h-24 rounded-full object-cover border-4 border-surface-container-high mb-6 shadow-sm hover:scale-105 transition-all duration-300" />
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">Nutrition 101</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Learn the basics of building a balanced, nutrient-dense diet to fuel your daily life.</p>
+<button class="px-6 py-2 border-2 border-primary text-primary font-label-md text-label-md rounded-full hover:bg-primary hover:text-on-primary transition-colors">Learn More</button>
+</div>
+<!-- Workshop 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col items-center text-center lift-hover soft-shadow border border-surface-dim/50">
+<img src="images/deep_detox.png" alt="Juice Cleansing Masterclass" class="w-24 h-24 rounded-full object-cover border-4 border-surface-container-high mb-6 shadow-sm hover:scale-105 transition-all duration-300" />
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">Juice Cleansing Masterclass</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Discover the safe and effective ways to detoxify your body using cold-pressed juices.</p>
+<button class="px-6 py-2 border-2 border-primary text-primary font-label-md text-label-md rounded-full hover:bg-primary hover:text-on-primary transition-colors">Learn More</button>
+</div>
+<!-- Workshop 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col items-center text-center lift-hover soft-shadow border border-surface-dim/50">
+<img src="images/crafted_daily.png" alt="Mindful Morning Rituals" class="w-24 h-24 rounded-full object-cover border-4 border-surface-container-high mb-6 shadow-sm hover:scale-105 transition-all duration-300" />
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">Mindful Morning Rituals</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Cultivate a morning routine that sets a positive tone for the rest of your day.</p>
+<button class="px-6 py-2 border-2 border-primary text-primary font-label-md text-label-md rounded-full hover:bg-primary hover:text-on-primary transition-colors">Learn More</button>
+</div>
+</div>
+</section>
+<!-- The Pure Process Section -->
+<section class="bg-surface py-section-gap px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto text-center">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-12">The Pure Process</h2>
+<div class="flex flex-col md:flex-row justify-between items-center relative">
+<div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-outline-variant -z-10 -translate-y-1/2"></div>
+<!-- Step 1 -->
+<div class="flex flex-col items-center mb-8 md:mb-0 bg-surface px-4">
+<div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center mb-4 shadow-md">
+<span class="material-symbols-outlined text-[32px] text-on-primary">eco</span>
+</div>
+<h4 class="font-headline-md text-[20px] text-on-surface mb-2">Organic Sourcing</h4>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[200px]">Partnering with local farms.</p>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center mb-8 md:mb-0 bg-surface px-4">
+<div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center mb-4 shadow-md">
+<span class="material-symbols-outlined text-[32px] text-on-primary">compress</span>
+</div>
+<h4 class="font-headline-md text-[20px] text-on-surface mb-2">Cold-Pressing</h4>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[200px]">Maximum nutrient extraction.</p>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center mb-8 md:mb-0 bg-surface px-4">
+<div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center mb-4 shadow-md">
+<span class="material-symbols-outlined text-[32px] text-on-primary">recycling</span>
+</div>
+<h4 class="font-headline-md text-[20px] text-on-surface mb-2">Sustainable Bottling</h4>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[200px]">Eco-friendly packaging.</p>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col items-center bg-surface px-4">
+<div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center mb-4 shadow-md">
+<span class="material-symbols-outlined text-[32px] text-on-primary">home</span>
+</div>
+<h4 class="font-headline-md text-[20px] text-on-surface mb-2">Doorstep Delivery</h4>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[200px]">Freshness brought to you.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Subscription Tiers Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Choose Your Wellness Plan</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Subscribe and save with our flexible delivery options.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Tier 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col items-center text-center soft-shadow border border-surface-dim/50">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Weekly Glow</h3>
+<div class="text-[36px] font-bold text-on-surface mb-6">$45<span class="text-body-md text-on-surface-variant font-normal">/wk</span></div>
+<ul class="text-left space-y-3 mb-8 w-full flex-grow">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> 6 Cold-Pressed Juices</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> Free Delivery</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> Cancel Anytime</li>
+</ul>
+<button class="w-full px-6 py-3 border-2 border-primary text-primary font-label-md text-label-md rounded-full hover:bg-primary hover:text-on-primary transition-colors">Select Plan</button>
+</div>
+<!-- Tier 2 -->
+<div class="bg-primary rounded-xl p-8 flex flex-col items-center text-center shadow-lg relative transform md:-translate-y-4">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full font-label-md text-[12px] uppercase tracking-wider font-bold">Most Popular</div>
+<h3 class="font-headline-md text-headline-md text-on-primary mb-2">Monthly Wellness</h3>
+<div class="text-[36px] font-bold text-on-primary mb-6">$160<span class="text-body-md text-on-primary/80 font-normal">/mo</span></div>
+<ul class="text-left space-y-3 mb-8 w-full flex-grow text-on-primary/90">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[20px]">check_circle</span> 24 Cold-Pressed Juices</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[20px]">check_circle</span> Free Delivery</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[20px]">check_circle</span> Exclusive Flavors</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[20px]">check_circle</span> 10% Discount on Add-ons</li>
+</ul>
+<button class="w-full px-6 py-3 bg-secondary-container text-on-secondary-container font-label-md text-label-md rounded-full hover:bg-secondary-fixed transition-colors">Select Plan</button>
+</div>
+<!-- Tier 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col items-center text-center soft-shadow border border-surface-dim/50">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Family Fuel</h3>
+<div class="text-[36px] font-bold text-on-surface mb-6">$290<span class="text-body-md text-on-surface-variant font-normal">/mo</span></div>
+<ul class="text-left space-y-3 mb-8 w-full flex-grow">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> 48 Cold-Pressed Juices</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> Free Priority Delivery</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> Exclusive Flavors</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> 15% Discount on Add-ons</li>
+</ul>
+<button class="w-full px-6 py-3 border-2 border-primary text-primary font-label-md text-label-md rounded-full hover:bg-primary hover:text-on-primary transition-colors">Select Plan</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container border-t border-outline-variant dark:border-on-surface-variant/20 w-full pt-16 pb-8 px-margin-mobile md:px-margin-desktop mt-auto">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="flex flex-col items-start text-left">
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim flex items-center gap-2 mb-4 hover:scale-105 transition-transform duration-200" href="index.html"><img alt="ZestUp Logo" class="h-8 md:h-10 w-auto object-contain" src="logo.png"/></a>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant mb-6">Crafting wellness, one sip at a time.</p>
+<div class="flex items-center gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-variant dark:bg-on-surface-variant/20 flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors" href="#">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-variant dark:bg-on-surface-variant/20 flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors" href="#">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+</div>
+</div>
+<div class="flex flex-col items-start">
+<h4 class="font-label-md text-label-md text-on-surface dark:text-inverse-surface font-bold mb-6 uppercase tracking-wider">Quick Links</h4>
+<ul class="flex flex-col gap-4 font-body-md text-body-md w-full">
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="index.html">Home</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="menu.html">Menu</a></li>
+<li><a class="text-primary dark:text-primary-fixed-dim font-bold border-l-2 border-primary pl-3 block w-full text-left transition-colors" href="services.html">Services</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="gallery.html">Gallery</a></li>
+</ul>
+</div>
+<div class="flex flex-col items-start">
+<h4 class="font-label-md text-label-md text-on-surface dark:text-inverse-surface font-bold mb-6 uppercase tracking-wider">Company</h4>
+<ul class="flex flex-col gap-4 font-body-md text-body-md w-full">
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="about.html">Home 2</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="blog.html">Blog</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="contact.html">Contact Us</a></li>
+</ul>
+</div>
+<div class="flex flex-col items-start">
+<h4 class="font-label-md text-label-md text-on-surface dark:text-inverse-surface font-bold mb-6 uppercase tracking-wider">Stay Refreshed</h4>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant mb-4">Subscribe to our newsletter for the latest recipes and exclusive offers.</p>
+<form class="w-full flex gap-2">
+<input class="w-full px-4 py-3 rounded-lg border-2 border-outline-variant bg-surface dark:bg-surface-container-highest focus:border-primary focus:ring-0 transition-colors font-body-md text-body-md outline-none" placeholder="Your email" required="" type="email"/>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-lg font-label-md font-bold hover:scale-105 transition-transform duration-200" type="submit">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</form>
+</div>
+</div>
+<div class="max-w-container-max mx-auto border-t border-outline-variant dark:border-on-surface-variant/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-md text-label-md text-on-surface-variant/70 dark:text-outline-variant/70 text-center md:text-left">
+            © 2026 ZestUp. All rights reserved.
+        </p>
+<div class="flex items-center gap-6">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors" href="index.html">Privacy Policy</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors" href="index.html">Terms of Service</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple mobile menu toggle
+        const openBtn = document.getElementById('open-menu');
+        const closeBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        openBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+    </script>
+</main>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const rtlBtns = document.querySelectorAll('.rtl-toggle-btn');
+        rtlBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.documentElement.dir = document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl';
+            });
+        });
+    });
+</script>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeBtns = document.querySelectorAll('.theme-toggle-btn');
+            
+            // Initial check
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+
+            // Update icons based on initial state
+            themeBtns.forEach(btn => {
+                const icon = btn.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    icon.textContent = document.documentElement.classList.contains('dark') ? 'light_mode' : 'dark_mode';
+                }
+                
+                btn.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    const isDark = document.documentElement.classList.contains('dark');
+                    
+                    if (isDark) {
+                        localStorage.theme = 'dark';
+                    } else {
+                        localStorage.theme = 'light';
+                    }
+                    
+                    // Update all buttons
+                    themeBtns.forEach(b => {
+                        const i = b.querySelector('.material-symbols-outlined');
+                        if (i) {
+                            i.textContent = isDark ? 'light_mode' : 'dark_mode';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

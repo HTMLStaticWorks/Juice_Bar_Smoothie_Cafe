@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ZestUp - Gallery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                        "primary": "var(--color-primary)",
+                        "inverse-primary": "var(--color-inverse-primary)",
+                        "primary-container": "var(--color-primary-container)",
+                        "on-primary-container": "var(--color-on-primary-container)",
+                        "primary-fixed-dim": "var(--color-primary-fixed-dim)",
+                        "surface": "var(--color-surface)",
+                        "background": "var(--color-background)",
+                        "on-surface": "var(--color-on-surface)",
+                        "inverse-on-surface": "var(--color-inverse-on-surface)",
+                        "on-background": "var(--color-on-background)",
+                        "on-surface-variant": "var(--color-on-surface-variant)",
+                        "outline-variant": "var(--color-outline-variant)",
+                        "surface-container-highest": "var(--color-surface-container-highest)",
+                        "inverse-surface": "var(--color-inverse-surface)",
+                        "surface-variant": "var(--color-surface-variant)",
+                        "surface-container-low": "var(--color-surface-container-low)",
+                        "surface-container": "var(--color-surface-container)",
+                        "secondary": "var(--color-secondary)",
+                        "secondary-container": "var(--color-secondary-container)",
+                        "on-secondary-container": "var(--color-on-secondary-container)",
+                        "tertiary": "var(--color-tertiary)",
+                        "tertiary-container": "var(--color-tertiary-container)",
+                        "on-tertiary-container": "var(--color-on-tertiary-container)",
+                        "on-primary": "var(--color-on-primary)",
+                        "on-secondary": "var(--color-on-secondary)",
+                        "on-tertiary": "var(--color-on-tertiary)",
+                        "error": "var(--color-error)",
+                        "on-error": "var(--color-on-error)",
+                        "error-container": "var(--color-error-container)",
+                        "on-error-container": "var(--color-on-error-container)"
+                    },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "container-max": "1200px",
+                      "margin-desktop": "48px",
+                      "section-gap": "80px",
+                      "margin-mobile": "16px",
+                      "unit": "8px"
+              },
+              "fontFamily": {
+                      "headline-xl": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-xl": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 24px;
+        }
+        @media (min-width: 768px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 24px;
+        }
+        .image-overlay {
+            background: linear-gradient(to top, rgba(0,69,13,0.8) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .masonry-item:hover .image-overlay {
+            opacity: 1;
+        }
+        
+        /* Modal Styles */
+        #lightbox-modal {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        #lightbox-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .social-masonry {
+            column-count: 2;
+            column-gap: 16px;
+        }
+        @media (min-width: 768px) {
+            .social-masonry {
+                column-count: 3;
+                column-gap: 24px;
+            }
+        }
+        @media (min-width: 1024px) {
+            .social-masonry {
+                column-count: 4;
+            }
+        }
+    </style>
+<link href="logo.png" rel="icon" type="image/png"/>
+<style id="theme-vars">
+:root {
+  --color-primary: #16a34a;
+  --color-inverse-primary: #4ade80;
+  --color-primary-container: #dcfce7;
+  --color-on-primary-container: #14532d;
+  --color-primary-fixed-dim: #4ade80;
+  
+  --color-surface: #ffffff;
+  --color-background: #f8fafc;
+  --color-on-surface: #0f172a;
+  --color-inverse-on-surface: #f8fafc;
+  --color-on-background: #0f172a;
+  
+  --color-on-surface-variant: #475569;
+  --color-outline-variant: #94a3b8;
+  
+  --color-surface-container-highest: #e2e8f0;
+  --color-inverse-surface: #1e293b;
+  
+  --color-surface-variant: #f1f5f9;
+  --color-surface-container-low: #ffffff;
+  --color-surface-container: #f8fafc;
+  --color-surface-container-lowest: #ffffff;
+  
+  --color-secondary: #ea580c;
+  --color-secondary-container: #ffedd5;
+  --color-on-secondary-container: #9a3412;
+  
+  --color-tertiary: #db2777;
+  --color-tertiary-container: #fce7f3;
+  --color-on-tertiary-container: #9d174d;
+  
+  --color-on-primary: #ffffff;
+  --color-on-secondary: #ffffff;
+  --color-on-tertiary: #ffffff;
+  
+  --color-error: #dc2626;
+  --color-on-error: #ffffff;
+  --color-error-container: #fee2e2;
+  --color-on-error-container: #991b1b;
+}
+
+html.dark {
+  --color-primary: #4ade80;
+  --color-inverse-primary: #16a34a;
+  --color-primary-container: #14532d;
+  --color-on-primary-container: #dcfce7;
+  --color-primary-fixed-dim: #16a34a;
+  
+  --color-surface: #0f172a;
+  --color-background: #020617;
+  --color-on-surface: #f8fafc;
+  --color-inverse-on-surface: #0f172a;
+  --color-on-background: #f8fafc;
+  
+  --color-on-surface-variant: #94a3b8;
+  --color-outline-variant: #475569;
+  
+  --color-surface-container-highest: #1e293b;
+  --color-inverse-surface: #f1f5f9;
+  
+  --color-surface-variant: #1e293b;
+  --color-surface-container-low: #0f172a;
+  --color-surface-container: #0f172a;
+  --color-surface-container-lowest: #1e293b;
+  
+  --color-secondary: #f97316;
+  --color-secondary-container: #9a3412;
+  --color-on-secondary-container: #ffedd5;
+  
+  --color-tertiary: #f472b6;
+  --color-tertiary-container: #9d174d;
+  --color-on-tertiary-container: #fce7f3;
+  
+  --color-on-primary: #022c22;
+  --color-on-secondary: #431407;
+  --color-on-tertiary: #4c0519;
+  
+  --color-error: #ef4444;
+  --color-on-error: #450a0a;
+  --color-error-container: #991b1b;
+  --color-on-error-container: #fee2e2;
+}
+</style>
+
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar (Desktop) -->
+<nav class="hidden md:flex bg-surface dark:bg-background fixed top-0 left-0 w-full z-50 justify-between items-center px-margin-desktop h-20 bg-surface/90 dark:bg-background/90 backdrop-blur-md shadow-sm docked full-width top-0">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
+            ZestUp
+        </div>
+<ul class="flex items-center gap-gutter font-label-md text-label-md">
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="index.html">Home</a></li><li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="about.html">Home 2</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="menu.html">Menu</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="services.html">Services</a></li>
+<li><a class="text-primary dark:text-inverse-primary font-bold hover:scale-105 duration-200 block py-2 border-b-2 border-primary" href="gallery.html">Gallery</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="blog.html">Blog</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="contact.html">Contact</a></li>
+</ul>
+<div class="flex items-center gap-4">
+<button class="theme-toggle-btn text-on-surface-variant dark:text-outline-variant hover:text-primary hover:scale-105 transition-transform duration-200">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<button class="rtl-toggle-btn text-on-surface-variant dark:text-outline-variant hover:text-primary hover:scale-105 transition-transform duration-200 font-label-md font-bold" title="Toggle RTL">
+  RTL
+</button>
+<a class="font-label-md text-label-md text-primary dark:text-inverse-primary hover:scale-105 transition-transform duration-200 inline-block" href="login.html">Login</a>
+<a class="font-label-md text-label-md bg-primary-container text-on-primary-container px-6 py-2 rounded-full hover:scale-105 transition-transform duration-200 inline-block" href="register.html">Sign Up</a>
+</div>
+</nav>
+<!-- Mobile Header (Trigger for SideNav) -->
+<header class="md:hidden fixed top-0 left-0 w-full z-40 bg-surface/90 backdrop-blur-md shadow-sm h-16 flex items-center justify-between px-margin-mobile">
+<div class="font-headline-md text-headline-md font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<button class="text-primary p-2" id="mobile-menu-btn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<!-- SideNavBar (Mobile Overlay) -->
+<aside class="fixed inset-y-0 right-0 z-[60] flex flex-col bg-surface-container-highest dark:bg-inverse-surface shadow-2xl docked full-height right-0 w-80 transform translate-x-full Slide from right transition-transform duration-300 ease-in-out" id="sidenav">
+<div class="p-6 flex justify-between items-center border-b border-outline-variant/30">
+<div>
+<div class=""><img alt="ZestUp Logo" class="h-8 md:h-10 w-auto object-contain" src="logo.png"/></div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Freshly Squeezed Daily</p>
+</div>
+<button class="text-on-surface-variant p-2 hover:bg-surface-variant rounded-full transition-colors" id="close-menu-btn">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="flex-1 overflow-y-auto py-4 font-label-md text-label-md">
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="index.html">
+<span class="material-symbols-outlined">home</span>
+                Home
+            </a><a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="about.html">
+<span class="material-symbols-outlined">info</span>
+                Home 2
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="menu.html">
+<span class="material-symbols-outlined">restaurant_menu</span>
+                Menu
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="services.html">
+<span class="material-symbols-outlined">event_repeat</span>
+                Services
+            </a>
+<a class="flex items-center gap-4 text-primary dark:text-inverse-primary bg-surface-variant dark:bg-on-surface-variant/10 px-4 py-3 mx-2 rounded-xl transition-colors font-bold" href="gallery.html">
+<span class="material-symbols-outlined">photo_library</span>
+                Gallery
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="blog.html">
+<span class="material-symbols-outlined">article</span>
+                Blog
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="contact.html">
+<span class="material-symbols-outlined">contact_support</span>
+                Contact
+            </a>
+<div class="mt-8 pt-4 border-t border-outline-variant/30">
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+                    Support
+                </a>
+</div>
+<button class="rtl-toggle-btn flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors w-[calc(100%-16px)] text-left font-bold">
+<span class="material-symbols-outlined">swap_horiz</span>
+    Toggle RTL
+</button>
+</nav>
+<div class="p-6">
+<a class="w-full font-label-md text-label-md bg-primary-container text-on-primary-container py-4 rounded-xl hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 transition-colors block text-center" href="register.html">
+                Sign Up Now
+            </a>
+</div>
+</aside>
+<main>
+<!-- Main Content -->
+<main class="flex-grow pt-24 pb-section-gap px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto">
+<!-- Header Section -->
+<div class="text-center mb-16">
+<h1 class="font-headline-xl text-headline-xl text-primary mb-4 hidden md:block">Visual Taste</h1>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-4 md:hidden">Visual Taste</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">A glimpse into our vibrant, freshly squeezed world. Experience the premium organic aesthetic of ZestUp.</p>
+</div>
+<!-- Masonry Gallery -->
+<div class="masonry-grid" id="gallery-grid">
+<!-- Gallery Item 1 -->
+<div class="masonry-item relative rounded-xl overflow-hidden cursor-pointer group" onclick="openLightbox(this)">
+<img class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105" data-alt="A close-up shot of a vibrant acai smoothie bowl topped with fresh strawberries, blueberries, kiwi, and chia seeds. The lighting is bright and natural, highlighting the rich, organic textures. The setting is a clean, modern cafe table, emphasizing a fresh, healthy, and premium aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSGBETC00b6yYle04TmsX3Iih6s-p-yF_PnTrF2TuWq4gUYxEZk-aBhvH5GMoe9D03rptSM5PHJDT2QgwW_wxLUf669y43oAMb-xL3nTHO2N0wQ2l5xQ68WHIC8WiyyLBBlv4xUJjE24SNtIeSQF9goI1AFHPgEBiP5d_nrwe39GyGvthn1lHMACJTyWBOxNn1K4nZ9LrofKGwJ2dBg1RBLMA7lEL42Wz9ZN80uQoMtI1uUE5Y6xmq"/>
+<div class="image-overlay absolute inset-0 flex flex-col justify-end p-6">
+<h3 class="font-headline-md text-headline-md text-on-primary">Berry Bliss Bowl</h3>
+<p class="font-body-md text-body-md text-surface-bright">Organic Acai Base</p>
+</div>
+</div>
+<!-- Gallery Item 2 -->
+<div class="masonry-item relative rounded-xl overflow-hidden cursor-pointer group" onclick="openLightbox(this)">
+<img class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105" data-alt="An elegant, tall glass being filled with a bright, luminous green detox juice. The pour is captured mid-air, creating dynamic fluid motion. The background is softly blurred, focusing on the fresh ingredients like kale, green apple, and cucumber arranged aesthetically nearby. Bright, natural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAGLas9TM5qiJxxDKE4S36cW_5UeWk3lFmwnAgQIRf53RWxZBFPBvP5y6YS9KA4qERnVZKkLAQE7LvszkelvqZRj36R2j95pPOEquz2pPLJUvL31yUTUiuY_fLr2S9li9w74eJOTy3x0Bsq3Xx12oLZsZH7_9Mobr0BfIYSXHIetFw3M8_byX1tFNi-ANBucc1cGt2nkBReess_gpVm5KbSQQz3JcaL5O-1bDGqJVM1PHoUP6LbimO"/>
+<div class="image-overlay absolute inset-0 flex flex-col justify-end p-6">
+<h3 class="font-headline-md text-headline-md text-on-primary">Green Detox Pour</h3>
+<p class="font-body-md text-body-md text-surface-bright">Cold-Pressed Excellence</p>
+</div>
+</div>
+<!-- Gallery Item 3 -->
+<div class="masonry-item relative rounded-xl overflow-hidden cursor-pointer group" onclick="openLightbox(this)">
+<img class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105" data-alt="A wide angle shot of a modern, premium juice bar cafe interior. The space features abundant natural light, minimalist wooden furniture, and lush green hanging plants. The aesthetic is clean, bright, and organic, embodying a high-end wellness environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3ohDuMMxNrqmi0dG5zuR8cuvfsXmXDPP7CkFkkxWN_stdMDcjcC6VsUsOjfx3D0HoT089078iXzp5lQahlvuu_xK2_hjFTKbJ-OmTbodqAoLVjwDhErSX-wk_Pn2PK2UoQtr9DMh_yQ7DP7Sp80ZMxjUzOCcal-4GFOylHHdW_gQZKxTN_lYc-r0iH7xc7LE24A-BdPKgM-BrrTOGqtG5HldV4-m33chvzvHrHgPj0srWcQXYsFu9"/>
+<div class="image-overlay absolute inset-0 flex flex-col justify-end p-6">
+<h3 class="font-headline-md text-headline-md text-on-primary">Our Cafe Ambience</h3>
+<p class="font-body-md text-body-md text-surface-bright">A Space for Wellness</p>
+</div>
+</div>
+<!-- Gallery Item 4 -->
+<div class="masonry-item relative rounded-xl overflow-hidden cursor-pointer group" onclick="openLightbox(this)">
+<img class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105" data-alt="A vibrant display of assorted tropical fruits including dragon fruit, mango, and pineapple, arranged neatly on a white marble countertop. The lighting is crisp and even, highlighting the vivid natural colors and textures. Represents raw, premium organic ingredients." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrOXBj1nRT3VwdZayfozo8yhTDSIvBXJ6u-fbLtY2ifVFrvRlLKivQ4UDwI6CLqw5tjTurLzxCUCLmD26DMQuYg9nHk45uX10iZaRXVyd6bOXcz0_4w01xZPXi0yR_cncGnckyIzezOFtnR4MzapQR564SUlWFL2Dug8V7w_ZlZYt2Qr1BHpWDEysNdzuFxfZdrRidejETW-1obQ_1qNeJLM-Tl744WflwWhyVswizkDq8D_B1mBUr"/>
+<div class="image-overlay absolute inset-0 flex flex-col justify-end p-6">
+<h3 class="font-headline-md text-headline-md text-on-primary">Fresh Ingredients</h3>
+<p class="font-body-md text-body-md text-surface-bright">Locally Sourced Organic</p>
+</div>
+</div>
+<!-- Gallery Item 5 -->
+<div class="masonry-item relative rounded-xl overflow-hidden cursor-pointer group" onclick="openLightbox(this)">
+<img class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105" data-alt="A beautifully styled flat lay featuring three distinct colorful smoothies in glass bottles: one bright red, one sunny yellow, and one deep green. They are surrounded by scattered matching ingredients on a clean white background. High-key, natural lighting, modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDazsIBx12GySQVfT8-e7zdo8mCEAf9bYxvyuthJHe2mYQsoLFUsW6X6Z1Ejy0tU7RQgCjDZRT5VrRDY6HJcYcoo_5l_-l6IW_UZRe5EZmgaf9vuJjrbiVuLKbQLKJrFLZ_KfaRNJ9Pemb1TojS6KfffP4wxmtfRRIgL91XKKrAZcyFlzd1yzzS09bjKayUAyFh7cC-ob_yTkHUfAqmEpuZYib_vLXNoRe2pbo5GbQtlJ0x83sWZAXM"/>
+<div class="image-overlay absolute inset-0 flex flex-col justify-end p-6">
+<h3 class="font-headline-md text-headline-md text-on-primary">Signature Blends</h3>
+<p class="font-body-md text-body-md text-surface-bright">The Cleanse Collection</p>
+</div>
+</div>
+<!-- Gallery Item 6 -->
+<div class="masonry-item relative rounded-xl overflow-hidden cursor-pointer group" onclick="openLightbox(this)">
+<img class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105" data-alt="A close up of a barista's hands carefully garnishing a tropical smoothie with a sprig of fresh mint and a slice of lime. The focus is tight on the action, showing precision and care. The background is a soft, blurred modern cafe setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrauQ4zhY2kCq8FYxCLv1e7Wh8wNFAMMGFMSRnQQTmIQsETS3vnwtPHL-TQ1MYpcym375437mqMjgsClrSW1q8vRjLgBG6qPuLYzRJk1gTdrvjQEFnkeKXYQ-q0DJ7fw9bwDQuLLaZyq7SNV1LfNIX-3tWwyeSmAYaqn6XkexmCyVqsbRC9SGmJDB64Z-DMKWeeFSRm1Rc0MZ177A6j3O-vhvyH8PDp9DUO63Web4zJaBjlNVynBCw"/>
+<div class="image-overlay absolute inset-0 flex flex-col justify-end p-6">
+<h3 class="font-headline-md text-headline-md text-on-primary">Crafted with Care</h3>
+<p class="font-body-md text-body-md text-surface-bright">Artisan Preparation</p>
+</div>
+</div>
+</div>
+<!-- Customer Moments (Social Wall) -->
+<section class="mt-section-gap">
+<div class="text-center mb-10">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-3">Customer Moments</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl mx-auto">Follow <span class="font-bold text-primary">@JuiceBarCafe</span> and tag us to be featured on our social wall!</p>
+</div>
+<div class="social-masonry">
+<div class="masonry-item relative rounded-xl overflow-hidden group">
+<img alt="Customer enjoying smoothie" class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxODAejE68IhN-ETmok6ctzafISbR2E0wJ6n1Qp6ZoisVCCT9LcZ8SKVsq4nXpkA0wYP2_e5uRaP-Scz3pc1pPFGnB3guKiFrQ80ZqG1De84hD4m1n6j9aINNxBhlWfS2H2ZbNMSjcwYObKpjP48Ls3gdbP2qZ4BZpKn10pK5KqQ4pdqabMJqdFcGNI6qsayIQxvYq39AwI3-rwXUe0qn4M9dKm1hNbwC6oE4zieMbIBGFc32qxZdV"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-4xl" data-icon="favorite">favorite</span>
+</div>
+</div>
+<div class="masonry-item relative rounded-xl overflow-hidden group">
+<img alt="Fresh juice flatlay" class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2VTRQXTzZrfMHD0YjhnY0PmkrISq6GWfml4CT-jvdahuBtCrtPf428Vh1zDQCe5CQNStThcYtU9vbVfyWe0QbDxSFUbVv9BG3FYr1Bzpqsrbg-xo_I32vdS5ae9-KnXJVRfeY5PH7tOBuXyNbw0aIYHTXJJ8410etkYa8lC0RpSKxNsx8sJ1GyuWQQu8Kw2Akq9zoPT6ZTmsy-kPS0-lxeaM0XAtgBp-be6elmBvAreYepavlIgL3"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-4xl" data-icon="favorite">favorite</span>
+</div>
+</div>
+<div class="masonry-item relative rounded-xl overflow-hidden group">
+<img alt="Healthy breakfast" class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBehmCGNVRJkCRfTHUmhbrXtA7ByVxUmb89v_UWdWSByU4f_4RxR-6mGZNoc3XIAbzy3vdJ-19H1QiQGTMcq2q0EWG3xf5EERBuAvGG8ezVxfNNKJ3iMWr2La8Xl4HQmHDNmPQ2spTlJf3Z5uqhb-GYWRy06VDhoWu4WMXu46EU26kupzd06cWVxEMCYQKSot10RurmLW-JE_6ybbsC5Hh8GjsUJzpy4WQObpU7a8fWXAODBJygAsGG"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-4xl" data-icon="favorite">favorite</span>
+</div>
+</div>
+<div class="masonry-item relative rounded-xl overflow-hidden group">
+<img alt="Summer smoothie outdoors" class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjzTN1tfk2sKhe6cFPkpueMK__lGPV1iqTV7sQ3xXZormkoTSMTCN1IdFtHEkLkrMrNpFQab-C2kanyANBHzuBqs0X6-dOWfOaPB82qwPp-sqvZTd-6TKK_YumlUVzCzWPHw2TWFFvOynGCaobov1yey6OZ2RAmU9PW4pCyx9pBKQE0op6gxECCMOZKIZIEk_WEORlH5rGQM0PY7V_HCOB8kEdT1IlmCfG6k6Upn81toLvylURlGaK"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-4xl" data-icon="favorite">favorite</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Organic Origins (Farm-to-Glass Story) -->
+<section class="mt-section-gap bg-surface-container-low rounded-3xl p-8 md:p-12 border border-outline-variant/30 flex flex-col md:flex-row items-center gap-12">
+<div class="flex-1 space-y-6">
+<h2 class="font-headline-lg text-headline-lg text-primary">Organic Origins</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">From sun-drenched fields directly to your glass. We partner with local, organic farms to source the highest quality fruits and vegetables. Our cold-pressing process ensures that every drop retains its essential vitamins, minerals, and enzymes.</p>
+<button class="font-label-md text-label-md bg-primary text-on-primary px-8 py-3 rounded-full hover:bg-primary-container hover:text-on-primary-container transition-colors duration-200 shadow-sm">Read Our Story</button>
+</div>
+<div class="flex-1 w-full grid grid-cols-2 gap-4">
+<img alt="Organic farming" class="w-full h-48 md:h-64 object-cover rounded-xl shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCROoEpYIT_ZBEajYp7ertUvvBj_KbG3HwpHLpDA_UT3qSWiA_K4oPDEA3BBX3VLGQMuvIXF-CsPGaNskb4ZNMbRBx3q0ZJU3z4h4-ej5BUh8H0OFNVRvuiGvHXfntfDmbe-82ncItmzKlZBr5ZMm0NBjeyCW2IYJXmp99u68pfj28ze-6jrOf_qUbnVM9xuclh6TGBjxAE1YiUmKK1ivJ7KyxW2XUOuPAZWKVVc1OVTkF-MgQ3Mb3v"/>
+<img alt="Fresh harvest" class="w-full h-48 md:h-64 object-cover rounded-xl shadow-md translate-y-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5zOleIHvG9ixqD5AjY8OkVKIbUfskY8hTZsNbkCf2YhQj01HgsBgyWw5KsPHwGYR78Tug7zk8vpYHaM-fFEeiuzm3s3rRHF9XdU73DvURxAJtYo9HEPhINjqOn0z-fSzFz_hPgxZcugVQ7hr_1Fewh0OcrQm0GJdh_8qWXGbqKFPoLQ5MBREPd6IOgrIRkpv2CKeQO3me1t7CbyZbfChPzXZ5288p3uYsBo7X_73oXp37zqj9cLrv"/>
+</div>
+</section>
+<!-- Vibrant Events (Community Showcase) -->
+<section class="mt-section-gap">
+<div class="text-center mb-10">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-3">Vibrant Events</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl mx-auto">Wellness workshops, community gatherings, and local catering. See how we bring the freshness to you.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+<img alt="Wellness Workshop" class="w-full h-64 object-cover transform transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqB211kyw3jrwpGhOWgsxAgyya0Elo1ZeTR1qd6keFbzIyLz8pUK6mD83uraSSFPwwmERmWzRnmd3ARNGvM2epFUIvnb4e7wMPiCYohCEQ2l19fFPFvFTrxcz8SB-rdRydWXfXKkU93yvAnsaXYAP8IISB94fYWxk-NK0mwwz7NDw8PUcAmjr917ytNY1aI7hRdTV4lVby5VB9GMqVaYBEG9Kc_-41g8dDp-DuUN5kFueILUc0GEhr"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
+<h3 class="font-headline-md text-headline-md text-white drop-shadow-md">Wellness Workshops</h3>
+</div>
+</div>
+<div class="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+<img alt="Community Gatherings" class="w-full h-64 object-cover transform transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK-gR5HrxpnlAJlLnoF_RtK2-SK2hOWYfJ5Ic_L2OccE7gLdL8IAiabBVBG0xyTSBP2veSWcm0wYVMi7GBKahonEiLrWvNJL4-1v5h97CllWvJcZRLMpOukiqewEfyKNtJglniIowBWuoz99mfMqJBm3tM7ta92szEQDf6fKMaMpYz0dammM1VVFEl4p6qNOYrpFll3A3xxWhEgDr1qyX981FrXZHzy7SOBuHo0TuiE_Tnt64lo-FH"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
+<h3 class="font-headline-md text-headline-md text-white drop-shadow-md">Community Gatherings</h3>
+</div>
+</div>
+<div class="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+<img alt="Local Catering" class="w-full h-64 object-cover transform transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBs8gKV6Q0S2cE8-NOv58E3FPvu1PzkwbZWvIgjQbNl-Y1ZLAdv-YLBTIpwWAPHKRRcmRaoqIRDoNDrxCDN3je8AUcWOMg2eOnbNAYc8uW_4l0SU7zBduZcjE07FBfQ_CJPAlgYXiAxZEhbPV9PrE_MwwLNVbNgEs34pmXt2FNTFMWG2b8opBMh4hireZUaQVY_21FuH23DUeLTziggtcLRPye5nZTwI08TfN98olhIWh7QS6K9ut5Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
+<h3 class="font-headline-md text-headline-md text-white drop-shadow-md">Event Catering</h3>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container border-t border-outline-variant dark:border-on-surface-variant/20 w-full pt-16 pb-8 px-margin-mobile md:px-margin-desktop mt-auto">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="flex flex-col items-start text-left">
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim flex items-center gap-2 mb-4 hover:scale-105 transition-transform duration-200" href="index.html"><img alt="ZestUp Logo" class="h-8 md:h-10 w-auto object-contain" src="logo.png"/></a>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant mb-6">Crafting wellness, one sip at a time.</p>
+<div class="flex items-center gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-variant dark:bg-on-surface-variant/20 flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors" href="#">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-variant dark:bg-on-surface-variant/20 flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors" href="#">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+</div>
+</div>
+<div class="flex flex-col items-start">
+<h4 class="font-label-md text-label-md text-on-surface dark:text-inverse-surface font-bold mb-6 uppercase tracking-wider">Quick Links</h4>
+<ul class="flex flex-col gap-4 font-body-md text-body-md w-full">
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="index.html">Home</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="menu.html">Menu</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="services.html">Services</a></li>
+<li><a class="text-primary dark:text-primary-fixed-dim font-bold border-l-2 border-primary pl-3 block w-full text-left transition-colors" href="gallery.html">Gallery</a></li>
+</ul>
+</div>
+<div class="flex flex-col items-start">
+<h4 class="font-label-md text-label-md text-on-surface dark:text-inverse-surface font-bold mb-6 uppercase tracking-wider">Company</h4>
+<ul class="flex flex-col gap-4 font-body-md text-body-md w-full">
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="about.html">Home 2</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="blog.html">Blog</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="contact.html">Contact Us</a></li>
+</ul>
+</div>
+<div class="flex flex-col items-start">
+<h4 class="font-label-md text-label-md text-on-surface dark:text-inverse-surface font-bold mb-6 uppercase tracking-wider">Stay Refreshed</h4>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant mb-4">Subscribe to our newsletter for the latest recipes and exclusive offers.</p>
+<form class="w-full flex gap-2">
+<input class="w-full px-4 py-3 rounded-lg border-2 border-outline-variant bg-surface dark:bg-surface-container-highest focus:border-primary focus:ring-0 transition-colors font-body-md text-body-md outline-none" placeholder="Your email" required="" type="email"/>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-lg font-label-md font-bold hover:scale-105 transition-transform duration-200" type="submit">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</form>
+</div>
+</div>
+<div class="max-w-container-max mx-auto border-t border-outline-variant dark:border-on-surface-variant/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-md text-label-md text-on-surface-variant/70 dark:text-outline-variant/70 text-center md:text-left">
+            © 2026 ZestUp. All rights reserved.
+        </p>
+<div class="flex items-center gap-6">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors" href="index.html">Privacy Policy</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors" href="index.html">Terms of Service</a>
+</div>
+</div>
+</footer>
+<!-- Lightbox Modal -->
+<div class="fixed inset-0 z-[100] bg-on-background/90 flex items-center justify-center p-4 md:p-8 backdrop-blur-sm" id="lightbox-modal">
+<button class="absolute top-6 right-6 text-surface hover:text-primary-fixed transition-colors" onclick="closeLightbox()">
+<span class="material-symbols-outlined text-4xl" data-icon="close">close</span>
+</button>
+<div class="max-w-5xl w-full max-h-full flex flex-col items-center">
+<img alt="Enlarged gallery image" class="max-w-full max-h-[819px] object-contain rounded-lg shadow-2xl" id="lightbox-img" src=""/>
+<div class="mt-6 text-center text-surface w-full" id="lightbox-caption">
+<h3 class="font-headline-lg text-headline-lg mb-2" id="lightbox-title"></h3>
+<p class="font-body-lg text-body-lg text-outline-variant" id="lightbox-desc"></p>
+</div>
+</div>
+</div>
+<script>
+        // Mobile Nav Logic
+        const navToggle = document.getElementById('nav-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+
+        navToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('translate-x-full');
+        });
+
+        // Lightbox Logic
+        const lightboxModal = document.getElementById('lightbox-modal');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxDesc = document.getElementById('lightbox-desc');
+
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            const title = element.querySelector('h3').innerText;
+            const desc = element.querySelector('p').innerText;
+
+            lightboxImg.src = img.src;
+            lightboxTitle.innerText = title;
+            lightboxDesc.innerText = desc;
+            
+            lightboxModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function closeLightbox() {
+            lightboxModal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+            
+            // Clear contents after transition
+            setTimeout(() => {
+                lightboxImg.src = '';
+                lightboxTitle.innerText = '';
+                lightboxDesc.innerText = '';
+            }, 300);
+        }
+
+        // Close on background click
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target === lightboxModal) {
+                closeLightbox();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightboxModal.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+    </script>
+</main>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const rtlBtns = document.querySelectorAll('.rtl-toggle-btn');
+        rtlBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.documentElement.dir = document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl';
+            });
+        });
+    });
+</script>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeBtns = document.querySelectorAll('.theme-toggle-btn');
+            
+            // Initial check
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+
+            // Update icons based on initial state
+            themeBtns.forEach(btn => {
+                const icon = btn.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    icon.textContent = document.documentElement.classList.contains('dark') ? 'light_mode' : 'dark_mode';
+                }
+                
+                btn.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    const isDark = document.documentElement.classList.contains('dark');
+                    
+                    if (isDark) {
+                        localStorage.theme = 'dark';
+                    } else {
+                        localStorage.theme = 'light';
+                    }
+                    
+                    // Update all buttons
+                    themeBtns.forEach(b => {
+                        const i = b.querySelector('.material-symbols-outlined');
+                        if (i) {
+                            i.textContent = isDark ? 'light_mode' : 'dark_mode';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

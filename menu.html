@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ZestUp - Menu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                        "primary": "var(--color-primary)",
+                        "inverse-primary": "var(--color-inverse-primary)",
+                        "primary-container": "var(--color-primary-container)",
+                        "on-primary-container": "var(--color-on-primary-container)",
+                        "primary-fixed-dim": "var(--color-primary-fixed-dim)",
+                        "surface": "var(--color-surface)",
+                        "background": "var(--color-background)",
+                        "on-surface": "var(--color-on-surface)",
+                        "inverse-on-surface": "var(--color-inverse-on-surface)",
+                        "on-background": "var(--color-on-background)",
+                        "on-surface-variant": "var(--color-on-surface-variant)",
+                        "outline-variant": "var(--color-outline-variant)",
+                        "surface-container-highest": "var(--color-surface-container-highest)",
+                        "inverse-surface": "var(--color-inverse-surface)",
+                        "surface-variant": "var(--color-surface-variant)",
+                        "surface-container-low": "var(--color-surface-container-low)",
+                        "surface-container": "var(--color-surface-container)",
+                        "secondary": "var(--color-secondary)",
+                        "secondary-container": "var(--color-secondary-container)",
+                        "on-secondary-container": "var(--color-on-secondary-container)",
+                        "tertiary": "var(--color-tertiary)",
+                        "tertiary-container": "var(--color-tertiary-container)",
+                        "on-tertiary-container": "var(--color-on-tertiary-container)",
+                        "on-primary": "var(--color-on-primary)",
+                        "on-secondary": "var(--color-on-secondary)",
+                        "on-tertiary": "var(--color-on-tertiary)",
+                        "error": "var(--color-error)",
+                        "on-error": "var(--color-on-error)",
+                        "error-container": "var(--color-error-container)",
+                        "on-error-container": "var(--color-on-error-container)"
+                    },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "48px",
+                    "gutter": "24px",
+                    "section-gap": "80px",
+                    "margin-mobile": "16px",
+                    "container-max": "1200px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "headline-md": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "headline-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "headline-xl": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "label-md": [
+                            "Inter"
+                    ],
+                    "headline-lg-mobile": [
+                            "Plus Jakarta Sans"
+                    ]
+            },
+            "fontSize": {
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-xl": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "28px",
+                            {
+                                    "lineHeight": "36px",
+                                    "fontWeight": "700"
+                            }
+                    ]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Smooth Slide-in Animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-slide-up {
+            animation: slideInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        
+        /* Subtle shadow for light mode premium feel */
+        .ambient-shadow {
+            box-shadow: 0 10px 25px -5px rgba(27, 94, 32, 0.08), 0 8px 10px -6px rgba(27, 94, 32, 0.04);
+        }
+    </style>
+<link href="logo.png" rel="icon" type="image/png"/>
+<style id="theme-vars">
+:root {
+  --color-primary: #16a34a;
+  --color-inverse-primary: #4ade80;
+  --color-primary-container: #dcfce7;
+  --color-on-primary-container: #14532d;
+  --color-primary-fixed-dim: #4ade80;
+  
+  --color-surface: #ffffff;
+  --color-background: #f8fafc;
+  --color-on-surface: #0f172a;
+  --color-inverse-on-surface: #f8fafc;
+  --color-on-background: #0f172a;
+  
+  --color-on-surface-variant: #475569;
+  --color-outline-variant: #94a3b8;
+  
+  --color-surface-container-highest: #e2e8f0;
+  --color-inverse-surface: #1e293b;
+  
+  --color-surface-variant: #f1f5f9;
+  --color-surface-container-low: #ffffff;
+  --color-surface-container: #f8fafc;
+  --color-surface-container-lowest: #ffffff;
+  
+  --color-secondary: #ea580c;
+  --color-secondary-container: #ffedd5;
+  --color-on-secondary-container: #9a3412;
+  
+  --color-tertiary: #db2777;
+  --color-tertiary-container: #fce7f3;
+  --color-on-tertiary-container: #9d174d;
+  
+  --color-on-primary: #ffffff;
+  --color-on-secondary: #ffffff;
+  --color-on-tertiary: #ffffff;
+  
+  --color-error: #dc2626;
+  --color-on-error: #ffffff;
+  --color-error-container: #fee2e2;
+  --color-on-error-container: #991b1b;
+}
+
+html.dark {
+  --color-primary: #4ade80;
+  --color-inverse-primary: #16a34a;
+  --color-primary-container: #14532d;
+  --color-on-primary-container: #dcfce7;
+  --color-primary-fixed-dim: #16a34a;
+  
+  --color-surface: #0f172a;
+  --color-background: #020617;
+  --color-on-surface: #f8fafc;
+  --color-inverse-on-surface: #0f172a;
+  --color-on-background: #f8fafc;
+  
+  --color-on-surface-variant: #94a3b8;
+  --color-outline-variant: #475569;
+  
+  --color-surface-container-highest: #1e293b;
+  --color-inverse-surface: #f1f5f9;
+  
+  --color-surface-variant: #1e293b;
+  --color-surface-container-low: #0f172a;
+  --color-surface-container: #0f172a;
+  --color-surface-container-lowest: #1e293b;
+  
+  --color-secondary: #f97316;
+  --color-secondary-container: #9a3412;
+  --color-on-secondary-container: #ffedd5;
+  
+  --color-tertiary: #f472b6;
+  --color-tertiary-container: #9d174d;
+  --color-on-tertiary-container: #fce7f3;
+  
+  --color-on-primary: #022c22;
+  --color-on-secondary: #431407;
+  --color-on-tertiary: #4c0519;
+  
+  --color-error: #ef4444;
+  --color-on-error: #450a0a;
+  --color-error-container: #991b1b;
+  --color-on-error-container: #fee2e2;
+}
+</style>
+
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+<!-- TopNavBar (Desktop) -->
+<nav class="hidden md:flex bg-surface dark:bg-background fixed top-0 left-0 w-full z-50 justify-between items-center px-margin-desktop h-20 bg-surface/90 dark:bg-background/90 backdrop-blur-md shadow-sm docked full-width top-0">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
+            ZestUp
+        </div>
+<ul class="flex items-center gap-gutter font-label-md text-label-md">
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="index.html">Home</a></li><li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="about.html">Home 2</a></li>
+<li><a class="text-primary dark:text-inverse-primary font-bold hover:scale-105 duration-200 block py-2 border-b-2 border-primary" href="menu.html">Menu</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="services.html">Services</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="gallery.html">Gallery</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="blog.html">Blog</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="contact.html">Contact</a></li>
+</ul>
+<div class="flex items-center gap-4">
+<button class="theme-toggle-btn text-on-surface-variant dark:text-outline-variant hover:text-primary hover:scale-105 transition-transform duration-200">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<button class="rtl-toggle-btn text-on-surface-variant dark:text-outline-variant hover:text-primary hover:scale-105 transition-transform duration-200 font-label-md font-bold" title="Toggle RTL">
+  RTL
+</button>
+<a class="font-label-md text-label-md text-primary dark:text-inverse-primary hover:scale-105 transition-transform duration-200 inline-block" href="login.html">Login</a>
+<a class="font-label-md text-label-md bg-primary-container text-on-primary-container px-6 py-2 rounded-full hover:scale-105 transition-transform duration-200 inline-block" href="register.html">Sign Up</a>
+</div>
+</nav>
+<!-- Mobile Header (Trigger for SideNav) -->
+<header class="md:hidden fixed top-0 left-0 w-full z-40 bg-surface/90 backdrop-blur-md shadow-sm h-16 flex items-center justify-between px-margin-mobile">
+<div class="font-headline-md text-headline-md font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<button class="text-primary p-2" id="mobile-menu-btn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<!-- SideNavBar (Mobile Overlay) -->
+<aside class="fixed inset-y-0 right-0 z-[60] flex flex-col bg-surface-container-highest dark:bg-inverse-surface shadow-2xl docked full-height right-0 w-80 transform translate-x-full Slide from right transition-transform duration-300 ease-in-out" id="sidenav">
+<div class="p-6 flex justify-between items-center border-b border-outline-variant/30">
+<div>
+<div class=""><img alt="ZestUp Logo" class="h-8 md:h-10 w-auto object-contain" src="logo.png"/></div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Freshly Squeezed Daily</p>
+</div>
+<button class="text-on-surface-variant p-2 hover:bg-surface-variant rounded-full transition-colors" id="close-menu-btn">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="flex-1 overflow-y-auto py-4 font-label-md text-label-md">
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="index.html">
+<span class="material-symbols-outlined">home</span>
+                Home
+            </a><a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="about.html">
+<span class="material-symbols-outlined">info</span>
+                Home 2
+            </a>
+<a class="flex items-center gap-4 text-primary dark:text-inverse-primary bg-surface-variant dark:bg-on-surface-variant/10 px-4 py-3 mx-2 rounded-xl transition-colors font-bold" href="menu.html">
+<span class="material-symbols-outlined">restaurant_menu</span>
+                Menu
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="services.html">
+<span class="material-symbols-outlined">event_repeat</span>
+                Services
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="gallery.html">
+<span class="material-symbols-outlined">photo_library</span>
+                Gallery
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="blog.html">
+<span class="material-symbols-outlined">article</span>
+                Blog
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="contact.html">
+<span class="material-symbols-outlined">contact_support</span>
+                Contact
+            </a>
+<div class="mt-8 pt-4 border-t border-outline-variant/30">
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+                    Support
+                </a>
+</div>
+<button class="rtl-toggle-btn flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors w-[calc(100%-16px)] text-left font-bold">
+<span class="material-symbols-outlined">swap_horiz</span>
+    Toggle RTL
+</button>
+</nav>
+<div class="p-6">
+<a class="w-full font-label-md text-label-md bg-primary-container text-on-primary-container py-4 rounded-xl hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 transition-colors block text-center" href="register.html">
+                Sign Up Now
+            </a>
+</div>
+</aside>
+<main>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-20 md:pt-28 pb-section-gap px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto">
+<!-- Hero Section -->
+<section class="relative rounded-[2rem] overflow-hidden bg-surface-container-low mb-16 animate-slide-up" data-alt="A vibrant, abstract, high-key organic pattern background featuring soft watercolor-style splashes of citrus yellow, tropical green, and berry magenta, evoking a fresh, healthy, and premium organic aesthetic with ample whitespace and soft lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAOsfawEOpno4P9Ps7hu169Om0mMf1Nl3JTQ7l5KJlivCwv3AWRf1QNq-PiVUmAIzF8_vooZbF0dPY0F67FtaT64eFZ_Txt0M0msyfWrXKfxKKRZ2DP3vrbsrZr_dAeA_GkATM-yw360ue_X0eN6qV2g64LcleqlW0KznUx1mw9HcEdThQ93D2LOonqgaNrVEmekybtDe1ADMH3mHzNBSRjYK4W73plsNXz915q82Sew6Ar9g6P8u3W'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-gradient-to-r from-surface/90 to-surface/40"></div>
+<div class="relative z-10 py-16 md:py-24 px-8 md:px-16 flex flex-col items-center text-center">
+<h1 class="font-headline-xl text-headline-xl font-bold text-primary mb-4">Our Fresh Menu</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Hand-crafted, organic goodness in every drop. Explore our vibrant selection of juices, smoothies, and power-packed combos designed to fuel your day.</p>
+</div>
+</section>
+<!-- Category Filter (Bento/Pill style) -->
+<section class="mb-12 flex flex-wrap justify-center gap-4 animate-slide-up stagger-1">
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md text-label-md shadow-md transition-transform hover:scale-105">All Items</button>
+<button class="bg-surface-container-high text-on-surface px-6 py-2 rounded-full font-label-md text-label-md hover:bg-surface-variant transition-colors hover:scale-105">Fresh Juices</button>
+<button class="bg-surface-container-high text-on-surface px-6 py-2 rounded-full font-label-md text-label-md hover:bg-surface-variant transition-colors hover:scale-105">Smoothies</button>
+<button class="bg-surface-container-high text-on-surface px-6 py-2 rounded-full font-label-md text-label-md hover:bg-surface-variant transition-colors hover:scale-105">Detox Shots</button>
+</section>
+<!-- Menu Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter mb-section-gap">
+<!-- Item Card 1 -->
+<article class="bg-surface rounded-2xl p-6 ambient-shadow hover:-translate-y-2 hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center group animate-slide-up stagger-1">
+<div class="w-full h-48 rounded-xl overflow-hidden mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-quality, brightly lit studio photograph of a tall glass filled with a vibrant, deep green cold-pressed juice, garnished with a crisp celery stalk and a slice of green apple, set against a clean, minimal white background, emphasizing a fresh, premium organic aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxUVYrtK6-qk5NqNIcMp8WJ1ra57iOU63Aro-VJg1XyDDXIH3kNgriraE32nZBNvG3bwvt7n51K3O2rrZU7WEuKqZVTCRIplV9Ta35QtlE7gIPZF4aclBurnjFsYmonyQdFCh9NeboheUArrN3ZRWbiitpk-KdKScBuMqXVL60wevFDlybUaPhvbi8HT46cO0LuTGmFE5Z7Dxu3ph_UkgwGlv7glb_20Kr2E7pxke6R1iRFDHwsVcv"/>
+<span class="absolute top-4 right-4 bg-tertiary text-on-tertiary px-3 py-1 rounded-full font-label-md text-[12px] font-bold tracking-wide uppercase">Vegan</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Emerald Elixir</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">Kale, Spinach, Green Apple, Celery, Lemon, Ginger.</p>
+<div class="flex items-center justify-center gap-2 mb-6 text-primary-container">
+<span class="material-symbols-outlined fill-icon text-lg" data-icon="health_and_safety">health_and_safety</span>
+<span class="font-label-md text-label-md">Rich in Vit C &amp; Iron</span>
+</div>
+<div class="w-full flex items-center justify-between mt-auto">
+<span class="font-headline-md text-[20px] font-bold text-on-surface">$8.50</span>
+<button class="bg-primary-container text-on-primary-container px-5 py-2 rounded-lg font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-2">
+                        Add to Order <span class="material-symbols-outlined text-[18px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</article>
+<!-- Item Card 2 -->
+<article class="bg-surface rounded-2xl p-6 ambient-shadow hover:-translate-y-2 hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center group animate-slide-up stagger-2">
+<div class="w-full h-48 rounded-xl overflow-hidden mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-quality, brightly lit studio photograph of a vibrant, bright orange citrus smoothie in a modern glass, featuring a small slice of orange on the rim, set against a pristine, minimal light background to highlight the fresh, premium aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsSzbdZ4KeMQRWfxYJd4uS0M4QzUXqyQCwd3J8w-b7ykuGgsFEqpjuxt-_lYvMm5iGiMHUWIeaWUzwK99hXFUj4W5XdAcOmGX0cSYIgDMRhRIHvP5rXxkaL2uRP5xrKU-0V-OabcmzUeurJ_jIzOkeT89MSCoqwYm-ecNfk6zpNusm5B6G4ThFuqLNdZ7dLRgMRez6Hlb323Lvhf7jakUbTFQvUIMhs0pC8TvtIaOa024bIonJeY9F"/>
+<span class="absolute top-4 right-4 bg-tertiary text-on-tertiary px-3 py-1 rounded-full font-label-md text-[12px] font-bold tracking-wide uppercase">Immunity</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Citrus Sunrise</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">Orange, Carrot, Pineapple, Turmeric, Black Pepper.</p>
+<div class="flex items-center justify-center gap-2 mb-6 text-primary-container">
+<span class="material-symbols-outlined fill-icon text-lg" data-icon="bolt">bolt</span>
+<span class="font-label-md text-label-md">Natural Energy Boost</span>
+</div>
+<div class="w-full flex items-center justify-between mt-auto">
+<span class="font-headline-md text-[20px] font-bold text-on-surface">$7.75</span>
+<button class="bg-primary-container text-on-primary-container px-5 py-2 rounded-lg font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-2">
+                        Add to Order <span class="material-symbols-outlined text-[18px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</article>
+<!-- Item Card 3 -->
+<article class="bg-surface rounded-2xl p-6 ambient-shadow hover:-translate-y-2 hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center group animate-slide-up stagger-3">
+<div class="w-full h-48 rounded-xl overflow-hidden mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-quality, brightly lit studio photograph of a thick, dark purple berry smoothie served in a clear glass cup, topped with a few fresh blueberries and a mint leaf, presented on a clean, minimal white surface evoking a premium health brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAA86Px8Frhy1h1kc_42FflBT-y7LGeSKXuHppqUcIBH8GDN9w5NpT39lmt-l0Poe_E_Vlw2wBQWD3a1ODoDT0WaSDJ5uCyzEr0-gD9au2GUBY8esCiIN7IwH-sK38g4yo0EKqQ9fJzG5Yf6raAG9AvheOll74OFa8_eATKWG4mijQaGUAqvZ_uKxSWkpGbR04GP7asXB3__Xl-vZgzVMjMZzUcP7uJ25hBl9ZTH7anKYJNtrW99375"/>
+<span class="absolute top-4 right-4 bg-tertiary text-on-tertiary px-3 py-1 rounded-full font-label-md text-[12px] font-bold tracking-wide uppercase">Antioxidant</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Berry Blast</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">Mixed Berries, Acai, Banana, Almond Milk, Chia Seeds.</p>
+<div class="flex items-center justify-center gap-2 mb-6 text-primary-container">
+<span class="material-symbols-outlined fill-icon text-lg" data-icon="favorite">favorite</span>
+<span class="font-label-md text-label-md">Heart Healthy</span>
+</div>
+<div class="w-full flex items-center justify-between mt-auto">
+<span class="font-headline-md text-[20px] font-bold text-on-surface">$9.00</span>
+<button class="bg-primary-container text-on-primary-container px-5 py-2 rounded-lg font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-2">
+                        Add to Order <span class="material-symbols-outlined text-[18px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</article>
+</section>
+<!-- Combo Options Section (Asymmetric Bento Grid Layout) -->
+<section class="animate-slide-up mb-section-gap">
+<div class="text-center mb-10">
+<h2 class="font-headline-lg text-headline-lg md:text-headline-xl text-primary mb-4">Combo Options</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Bundle your favorites and save while maximizing your wellness goals.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[minmax(250px,auto)]">
+<!-- Large Feature Combo -->
+<div class="md:col-span-8 bg-inverse-surface text-inverse-on-surface rounded-3xl p-8 md:p-12 relative overflow-hidden group flex flex-col justify-center">
+<div class="relative z-10 max-w-lg text-center md:text-left mx-auto md:mx-0">
+<span class="inline-block bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-md text-[12px] font-bold tracking-wide uppercase mb-4">Best Value</span>
+<h3 class="font-headline-lg text-headline-lg font-bold text-inverse-primary mb-4">Detox Combo</h3>
+<p class="font-body-md text-body-md opacity-90 mb-6">Reset and refresh. Includes our Emerald Elixir, a Lemon-Ginger Detox Shot, and a light organic side salad.</p>
+<div class="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
+<span class="font-headline-lg text-headline-lg font-bold">$18.00</span>
+<button class="bg-primary-fixed text-on-primary-fixed font-label-md text-label-md px-6 py-3 rounded-full hover:bg-primary-fixed-dim hover:scale-105 transition-all duration-200">
+                                Add to Order
+                            </button>
+</div>
+</div>
+<!-- Decorative abstract element for dark card -->
+<div class="absolute -bottom-10 -right-10 w-64 h-64 bg-primary-container/30 rounded-full blur-3xl group-hover:bg-primary-container/50 transition-all duration-700"></div>
+</div>
+<!-- Secondary Combo 1 -->
+<div class="md:col-span-4 bg-surface-container-high rounded-3xl p-8 flex flex-col items-center text-center ambient-shadow hover:-translate-y-1 transition-transform duration-300">
+<div class="w-16 h-16 bg-surface-variant rounded-full flex items-center justify-center mb-4 text-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="battery_charging_full">battery_charging_full</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Energy Booster Pack</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant mb-6 flex-grow">Citrus Sunrise juice + Maca Root Energy Shot.</p>
+<div class="w-full flex flex-col gap-3">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">$12.50</span>
+<button class="w-full border-2 border-primary text-primary font-label-md text-label-md px-4 py-2 rounded-full hover:bg-primary hover:text-on-primary transition-colors">
+                            Select
+                        </button>
+</div>
+</div>
+<!-- Secondary Combo 2 -->
+<div class="md:col-span-12 lg:col-span-12 bg-surface rounded-3xl p-8 border border-outline-variant/30 flex flex-col md:flex-row items-center justify-between gap-8 ambient-shadow hover:-translate-y-1 transition-transform duration-300">
+<div class="flex items-center gap-6 flex-col md:flex-row text-center md:text-left">
+<div class="w-20 h-20 bg-tertiary-container/20 rounded-2xl flex items-center justify-center text-tertiary-container rotate-3">
+<span class="material-symbols-outlined text-4xl" data-icon="group">group</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-1">Family Bundle</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Choose any 4 large juices or smoothies + 2 wellness shots.</p>
+</div>
+</div>
+<div class="flex items-center gap-6 flex-col sm:flex-row">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">$32.00</span>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-8 py-3 rounded-full hover:bg-primary-container hover:scale-105 transition-all duration-200 shadow-md">
+                            Build Bundle
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Build Your Own Section -->
+<section class="mb-section-gap animate-slide-up">
+<div class="bg-surface-container-high dark:bg-surface-container-lowest rounded-[2rem] p-8 md:p-16 text-center ambient-shadow relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary-container/10 to-secondary-container/10"></div>
+<div class="relative z-10">
+<h2 class="font-headline-lg text-headline-lg md:text-headline-xl text-primary mb-4">Build Your Own</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12">Craft your perfect blend in three simple steps. Fresh, fast, and exactly how you like it.</p>
+<div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 mb-12">
+<div class="flex flex-col items-center max-w-xs group">
+<div class="w-24 h-24 bg-surface text-primary rounded-full flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-5xl" data-icon="water_drop">water_drop</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">1. Pick Your Base</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Almond milk, coconut water, or fresh juice.</p>
+</div>
+<div class="flex flex-col items-center max-w-xs group">
+<div class="w-24 h-24 bg-surface text-secondary rounded-full flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-5xl" data-icon="nutrition">nutrition</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">2. Choose Fruits &amp; Veg</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Mix and match up to 4 organic ingredients.</p>
+</div>
+<div class="flex flex-col items-center max-w-xs group">
+<div class="w-24 h-24 bg-surface text-tertiary rounded-full flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-5xl" data-icon="spa">spa</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">3. Add Superfoods</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Boost with chia, matcha, or protein powder.</p>
+</div>
+</div>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-10 py-4 rounded-full hover:bg-primary-container hover:scale-105 transition-all duration-200 shadow-lg text-lg">
+                    Start Customizing
+                </button>
+</div>
+</div>
+</section>
+<!-- Wellness Shots Section -->
+<section class="mb-section-gap animate-slide-up">
+<div class="text-center mb-10">
+<h2 class="font-headline-lg text-headline-lg md:text-headline-xl text-primary mb-4">Wellness Shots</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Quick-hit nutrition designed to target specific health goals in one powerful sip.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Shot Card 1 -->
+<article class="bg-surface rounded-2xl p-6 ambient-shadow hover:-translate-y-1 hover:shadow-md transition-all duration-300 flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-3xl" data-icon="local_fire_department">local_fire_department</span>
+</div>
+<h3 class="font-headline-md text-[20px] text-primary mb-1">Ginger Zinger</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant mb-4 flex-grow">Ginger, Lemon, Cayenne.</p>
+<div class="w-full flex items-center justify-between mt-auto">
+<span class="font-headline-md text-[18px] font-bold text-on-surface">$4.00</span>
+<button class="bg-primary-container text-on-primary-container px-4 py-1.5 rounded-lg font-label-md text-[12px] hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-1">
+                            Add <span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+</button>
+</div>
+</article>
+<!-- Shot Card 2 -->
+<article class="bg-surface rounded-2xl p-6 ambient-shadow hover:-translate-y-1 hover:shadow-md transition-all duration-300 flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-3xl" data-icon="flare">flare</span>
+</div>
+<h3 class="font-headline-md text-[20px] text-primary mb-1">Turmeric Glow</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant mb-4 flex-grow">Turmeric, Orange, Black Pepper.</p>
+<div class="w-full flex items-center justify-between mt-auto">
+<span class="font-headline-md text-[18px] font-bold text-on-surface">$4.50</span>
+<button class="bg-primary-container text-on-primary-container px-4 py-1.5 rounded-lg font-label-md text-[12px] hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-1">
+                            Add <span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+</button>
+</div>
+</article>
+<!-- Shot Card 3 -->
+<article class="bg-surface rounded-2xl p-6 ambient-shadow hover:-translate-y-1 hover:shadow-md transition-all duration-300 flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-3xl" data-icon="grass">grass</span>
+</div>
+<h3 class="font-headline-md text-[20px] text-primary mb-1">Wheatgrass Power</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant mb-4 flex-grow">100% Organic Wheatgrass.</p>
+<div class="w-full flex items-center justify-between mt-auto">
+<span class="font-headline-md text-[18px] font-bold text-on-surface">$4.00</span>
+<button class="bg-primary-container text-on-primary-container px-4 py-1.5 rounded-lg font-label-md text-[12px] hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-1">
+                            Add <span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+</button>
+</div>
+</article>
+<!-- Shot Card 4 -->
+<article class="bg-surface rounded-2xl p-6 ambient-shadow hover:-translate-y-1 hover:shadow-md transition-all duration-300 flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-tertiary-container text-on-tertiary-container rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-3xl" data-icon="coronavirus">coronavirus</span>
+</div>
+<h3 class="font-headline-md text-[20px] text-primary mb-1">Immune Shield</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant mb-4 flex-grow">Elderberry, Zinc, Echinacea.</p>
+<div class="w-full flex items-center justify-between mt-auto">
+<span class="font-headline-md text-[18px] font-bold text-on-surface">$5.00</span>
+<button class="bg-primary-container text-on-primary-container px-4 py-1.5 rounded-lg font-label-md text-[12px] hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-1">
+                            Add <span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+</button>
+</div>
+</article>
+
+<!-- Favorite Card 4 -->
+<article class="bg-surface rounded-2xl p-6 ambient-shadow hover:-translate-y-2 hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center group">
+<div class="w-full h-40 rounded-xl overflow-hidden mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/farm_fresh.png"/>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Green Goddess</h3>
+<div class="flex items-center justify-center gap-1 mb-3 text-secondary-fixed-dim">
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="text-on-surface-variant text-xs ml-1">(5.0)</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">Spinach, Kale, Apple, Lemon, Ginger, Agave.</p>
+<div class="w-full flex items-center justify-between mt-auto">
+<span class="font-headline-md text-[20px] font-bold text-on-surface">$10.50</span>
+<button class="bg-primary-container text-on-primary-container px-5 py-2 rounded-lg font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-2">
+                            Add <span class="material-symbols-outlined text-[18px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</article>
+<!-- Favorite Card 5 -->
+<article class="bg-surface rounded-2xl p-6 ambient-shadow hover:-translate-y-2 hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center group">
+<div class="w-full h-40 rounded-xl overflow-hidden mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/zero_preservatives.png"/>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Citrus Sunrise</h3>
+<div class="flex items-center justify-center gap-1 mb-3 text-secondary-fixed-dim">
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star_half">star_half</span>
+<span class="text-on-surface-variant text-xs ml-1">(4.7)</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">Orange, Grapefruit, Lemon, Carrot, Turmeric.</p>
+<div class="w-full flex items-center justify-between mt-auto">
+<span class="font-headline-md text-[20px] font-bold text-on-surface">$9.00</span>
+<button class="bg-primary-container text-on-primary-container px-5 py-2 rounded-lg font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-2">
+                            Add <span class="material-symbols-outlined text-[18px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</article>
+<!-- Favorite Card 6 -->
+<article class="bg-surface rounded-2xl p-6 ambient-shadow hover:-translate-y-2 hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center group">
+<div class="w-full h-40 rounded-xl overflow-hidden mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/starter_kit.png"/>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Berry Blast</h3>
+<div class="flex items-center justify-center gap-1 mb-3 text-secondary-fixed-dim">
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="text-on-surface-variant text-xs ml-1">(4.9)</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">Strawberries, Blueberries, Raspberries, Acai, Apple.</p>
+<div class="w-full flex items-center justify-between mt-auto">
+<span class="font-headline-md text-[20px] font-bold text-on-surface">$10.00</span>
+<button class="bg-primary-container text-on-primary-container px-5 py-2 rounded-lg font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-2">
+                            Add <span class="material-symbols-outlined text-[18px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</article>
+
+</div>
+</section>
+<!-- Community Favorites Section -->
+<section class="mb-section-gap animate-slide-up">
+<div class="text-center mb-10">
+<h2 class="font-headline-lg text-headline-lg md:text-headline-xl text-primary mb-4">Community Favorites</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">See what everyone else is loving. Our top 3 most-ordered items this month.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Favorite Card 1 -->
+<article class="bg-surface rounded-2xl p-6 ambient-shadow hover:-translate-y-2 hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center group">
+<div class="w-full h-40 rounded-xl overflow-hidden mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-quality, brightly lit studio photograph of a vibrant pink dragonfruit smoothie bowl topped with granola, fresh fruit, and coconut flakes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH1K4w4k3j236-4O6-J23z-Q0987-E885_I36-I822_C8Z9_4R-59-90--T90G04-Q-I2V52R3-0K98--S63H2-O39U4_R1I_820I9Q0045269O7R27341G35K1"/>
+<span class="absolute top-4 left-4 bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-md text-[12px] font-bold tracking-wide uppercase shadow-sm">Best Seller</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Dragon Bowl</h3>
+<div class="flex items-center justify-center gap-1 mb-3 text-secondary-fixed-dim">
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="text-on-surface-variant text-xs ml-1">(4.9)</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">Pitaya, Mango, Banana, Coconut Milk, House Granola.</p>
+<div class="w-full flex items-center justify-between mt-auto">
+<span class="font-headline-md text-[20px] font-bold text-on-surface">$11.50</span>
+<button class="bg-primary-container text-on-primary-container px-5 py-2 rounded-lg font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-2">
+                            Add <span class="material-symbols-outlined text-[18px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</article>
+<!-- Favorite Card 2 -->
+<article class="bg-surface rounded-2xl p-6 ambient-shadow hover:-translate-y-2 hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center group">
+<div class="w-full h-40 rounded-xl overflow-hidden mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-quality, brightly lit studio photograph of a creamy green avocado matcha smoothie in a tall glass." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxUVYrtK6-qk5NqNIcMp8WJ1ra57iOU63Aro-VJg1XyDDXIH3kNgriraE32nZBNvG3bwvt7n51K3O2rrZU7WEuKqZVTCRIplV9Ta35QtlE7gIPZF4aclBurnjFsYmonyQdFCh9NeboheUArrN3ZRWbiitpk-KdKScBuMqXVL60wevFDlybUaPhvbi8HT46cO0LuTGmFE5Z7Dxu3ph_UkgwGlv7glb_20Kr2E7pxke6R1iRFDHwsVcv"/>
+<span class="absolute top-4 left-4 bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-md text-[12px] font-bold tracking-wide uppercase shadow-sm">Best Seller</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Matcha Master</h3>
+<div class="flex items-center justify-center gap-1 mb-3 text-secondary-fixed-dim">
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star_half">star_half</span>
+<span class="text-on-surface-variant text-xs ml-1">(4.8)</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">Ceremonial Matcha, Avocado, Spinach, Almond Milk, Agave.</p>
+<div class="w-full flex items-center justify-between mt-auto">
+<span class="font-headline-md text-[20px] font-bold text-on-surface">$9.50</span>
+<button class="bg-primary-container text-on-primary-container px-5 py-2 rounded-lg font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-2">
+                            Add <span class="material-symbols-outlined text-[18px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</article>
+<!-- Favorite Card 3 -->
+<article class="bg-surface rounded-2xl p-6 ambient-shadow hover:-translate-y-2 hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center group">
+<div class="w-full h-40 rounded-xl overflow-hidden mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-quality, brightly lit studio photograph of a rich chocolate peanut butter protein shake in a glass cup." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsSzbdZ4KeMQRWfxYJd4uS0M4QzUXqyQCwd3J8w-b7ykuGgsFEqpjuxt-_lYvMm5iGiMHUWIeaWUzwK99hXFUj4W5XdAcOmGX0cSYIgDMRhRIHvP5rXxkaL2uRP5xrKU-0V-OabcmzUeurJ_jIzOkeT89MSCoqwYm-ecNfk6zpNusm5B6G4ThFuqLNdZ7dLRgMRez6Hlb323Lvhf7jakUbTFQvUIMhs0pC8TvtIaOa024bIonJeY9F"/>
+<span class="absolute top-4 left-4 bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-md text-[12px] font-bold tracking-wide uppercase shadow-sm">Best Seller</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">PB Powerhouse</h3>
+<div class="flex items-center justify-center gap-1 mb-3 text-secondary-fixed-dim">
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="text-on-surface-variant text-xs ml-1">(4.9)</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">Peanut Butter, Banana, Cacao, Dates, Oat Milk, Protein.</p>
+<div class="w-full flex items-center justify-between mt-auto">
+<span class="font-headline-md text-[20px] font-bold text-on-surface">$10.00</span>
+<button class="bg-primary-container text-on-primary-container px-5 py-2 rounded-lg font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-2">
+                            Add <span class="material-symbols-outlined text-[18px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</article>
+
+<!-- Favorite Card 4 -->
+<article class="bg-surface rounded-2xl p-6 ambient-shadow hover:-translate-y-2 hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center group">
+<div class="w-full h-40 rounded-xl overflow-hidden mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/farm_fresh.png"/>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Green Goddess</h3>
+<div class="flex items-center justify-center gap-1 mb-3 text-secondary-fixed-dim">
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="text-on-surface-variant text-xs ml-1">(5.0)</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">Spinach, Kale, Apple, Lemon, Ginger, Agave.</p>
+<div class="w-full flex items-center justify-between mt-auto">
+<span class="font-headline-md text-[20px] font-bold text-on-surface">$10.50</span>
+<button class="bg-primary-container text-on-primary-container px-5 py-2 rounded-lg font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-2">
+                            Add <span class="material-symbols-outlined text-[18px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</article>
+<!-- Favorite Card 5 -->
+<article class="bg-surface rounded-2xl p-6 ambient-shadow hover:-translate-y-2 hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center group">
+<div class="w-full h-40 rounded-xl overflow-hidden mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/zero_preservatives.png"/>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Citrus Sunrise</h3>
+<div class="flex items-center justify-center gap-1 mb-3 text-secondary-fixed-dim">
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star_half">star_half</span>
+<span class="text-on-surface-variant text-xs ml-1">(4.7)</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">Orange, Grapefruit, Lemon, Carrot, Turmeric.</p>
+<div class="w-full flex items-center justify-between mt-auto">
+<span class="font-headline-md text-[20px] font-bold text-on-surface">$9.00</span>
+<button class="bg-primary-container text-on-primary-container px-5 py-2 rounded-lg font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-2">
+                            Add <span class="material-symbols-outlined text-[18px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</article>
+<!-- Favorite Card 6 -->
+<article class="bg-surface rounded-2xl p-6 ambient-shadow hover:-translate-y-2 hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center group">
+<div class="w-full h-40 rounded-xl overflow-hidden mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/starter_kit.png"/>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Berry Blast</h3>
+<div class="flex items-center justify-center gap-1 mb-3 text-secondary-fixed-dim">
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-icon text-sm" data-icon="star">star</span>
+<span class="text-on-surface-variant text-xs ml-1">(4.9)</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">Strawberries, Blueberries, Raspberries, Acai, Apple.</p>
+<div class="w-full flex items-center justify-between mt-auto">
+<span class="font-headline-md text-[20px] font-bold text-on-surface">$10.00</span>
+<button class="bg-primary-container text-on-primary-container px-5 py-2 rounded-lg font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-2">
+                            Add <span class="material-symbols-outlined text-[18px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</article>
+
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container border-t border-outline-variant dark:border-on-surface-variant/20 w-full pt-16 pb-8 px-margin-mobile md:px-margin-desktop mt-auto">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="flex flex-col items-start text-left">
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim flex items-center gap-2 mb-4 hover:scale-105 transition-transform duration-200" href="index.html"><img alt="ZestUp Logo" class="h-8 md:h-10 w-auto object-contain" src="logo.png"/></a>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant mb-6">Crafting wellness, one sip at a time.</p>
+<div class="flex items-center gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-variant dark:bg-on-surface-variant/20 flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors" href="#">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-variant dark:bg-on-surface-variant/20 flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors" href="#">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+</div>
+</div>
+<div class="flex flex-col items-start">
+<h4 class="font-label-md text-label-md text-on-surface dark:text-inverse-surface font-bold mb-6 uppercase tracking-wider">Quick Links</h4>
+<ul class="flex flex-col gap-4 font-body-md text-body-md w-full">
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="index.html">Home</a></li>
+<li><a class="text-primary dark:text-primary-fixed-dim font-bold border-l-2 border-primary pl-3 block w-full text-left transition-colors" href="menu.html">Menu</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="services.html">Services</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="gallery.html">Gallery</a></li>
+</ul>
+</div>
+<div class="flex flex-col items-start">
+<h4 class="font-label-md text-label-md text-on-surface dark:text-inverse-surface font-bold mb-6 uppercase tracking-wider">Company</h4>
+<ul class="flex flex-col gap-4 font-body-md text-body-md w-full">
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="about.html">Home 2</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="blog.html">Blog</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors block w-full text-left border-l-2 border-transparent pl-3" href="contact.html">Contact Us</a></li>
+</ul>
+</div>
+<div class="flex flex-col items-start">
+<h4 class="font-label-md text-label-md text-on-surface dark:text-inverse-surface font-bold mb-6 uppercase tracking-wider">Stay Refreshed</h4>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant mb-4">Subscribe to our newsletter for the latest recipes and exclusive offers.</p>
+<form class="w-full flex gap-2">
+<input class="w-full px-4 py-3 rounded-lg border-2 border-outline-variant bg-surface dark:bg-surface-container-highest focus:border-primary focus:ring-0 transition-colors font-body-md text-body-md outline-none" placeholder="Your email" required="" type="email"/>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-lg font-label-md font-bold hover:scale-105 transition-transform duration-200" type="submit">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</form>
+</div>
+</div>
+<div class="max-w-container-max mx-auto border-t border-outline-variant dark:border-on-surface-variant/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-md text-label-md text-on-surface-variant/70 dark:text-outline-variant/70 text-center md:text-left">
+            © 2026 ZestUp. All rights reserved.
+        </p>
+<div class="flex items-center gap-6">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors" href="index.html">Privacy Policy</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors" href="index.html">Terms of Service</a>
+</div>
+</div>
+</footer>
+</main>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const rtlBtns = document.querySelectorAll('.rtl-toggle-btn');
+        rtlBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.documentElement.dir = document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl';
+            });
+        });
+    });
+</script>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeBtns = document.querySelectorAll('.theme-toggle-btn');
+            
+            // Initial check
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+
+            // Update icons based on initial state
+            themeBtns.forEach(btn => {
+                const icon = btn.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    icon.textContent = document.documentElement.classList.contains('dark') ? 'light_mode' : 'dark_mode';
+                }
+                
+                btn.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    const isDark = document.documentElement.classList.contains('dark');
+                    
+                    if (isDark) {
+                        localStorage.theme = 'dark';
+                    } else {
+                        localStorage.theme = 'light';
+                    }
+                    
+                    // Update all buttons
+                    themeBtns.forEach(b => {
+                        const i = b.querySelector('.material-symbols-outlined');
+                        if (i) {
+                            i.textContent = isDark ? 'light_mode' : 'dark_mode';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
