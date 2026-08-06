@@ -193,22 +193,22 @@ html.dark {
   --color-on-error-container: #fee2e2;
 }
 </style>
-
+<link href="nav-animations.css" rel="stylesheet"/>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden min-h-screen pt-20">
 <!-- TopNavBar (Desktop) -->
-<nav class="hidden lg:flex bg-surface dark:bg-background fixed top-0 left-0 w-full z-50 justify-between items-center px-margin-desktop h-20 bg-surface/90 dark:bg-background/90 backdrop-blur-md shadow-sm docked full-width top-0">
+<nav id="main-nav" data-page="home2" class="hidden lg:flex bg-surface dark:bg-background fixed top-0 left-0 w-full z-50 justify-between items-center px-margin-desktop h-20 bg-surface/90 dark:bg-background/90 backdrop-blur-md shadow-sm docked full-width top-0">
 <div class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary flex items-center gap-2">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
             ZestUp
         </div>
 <ul class="flex items-center gap-gutter font-label-md text-label-md">
-<li><a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="index.html">Home</a></li><li><a class="text-primary dark:text-inverse-primary font-bold hover:scale-105 duration-200 block py-2 border-b-2 border-primary" href="about.html">Home 2</a></li>
-<li><a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="menu.html">Menu</a></li>
-<li><a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="services.html">Services</a></li>
-<li><a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="gallery.html">Gallery</a></li>
-<li><a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="blog.html">Blog</a></li>
-<li><a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="contact.html">Contact</a></li>
+<li><a class="nav-link text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="index.html">Home</a></li><li><a class="nav-link nav-link-active text-primary dark:text-inverse-primary font-bold hover:scale-105 duration-200 block py-2" href="about.html">Home 2</a></li>
+<li><a class="nav-link text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="menu.html">Menu</a></li>
+<li><a class="nav-link text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="services.html">Services</a></li>
+<li><a class="nav-link text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="gallery.html">Gallery</a></li>
+<li><a class="nav-link text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="blog.html">Blog</a></li>
+<li><a class="nav-link text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:scale-105 duration-200 block py-2" href="contact.html">Contact</a></li>
 </ul>
 <div class="flex items-center gap-4">
 <button class="theme-toggle-btn text-on-surface-variant dark:text-on-surface-variant hover:text-primary hover:scale-105 transition-transform duration-200">
@@ -217,12 +217,12 @@ html.dark {
 <button class="rtl-toggle-btn text-on-surface-variant dark:text-on-surface-variant hover:text-primary hover:scale-105 transition-transform duration-200 font-label-md font-bold" title="Toggle RTL">
   RTL
 </button>
-<a class="font-label-md text-label-md border-2 border-primary text-primary dark:border-primary-fixed dark:text-primary-fixed px-6 py-1.5 rounded-full hover:bg-primary hover:text-on-primary dark:hover:bg-primary-fixed dark:hover:text-on-primary-fixed hover:-translate-y-1.5 hover:shadow-[0_6px_0_0_rgba(0,0,0,0.15)] active:-translate-y-0 active:shadow-[0_0px_0_0_rgba(0,0,0,0.15)] transition-all duration-200 inline-block" href="login.html">Login</a>
-<a class="font-label-md text-label-md bg-primary-container text-on-primary-container px-6 py-2 rounded-full hover:-translate-y-1.5 hover:shadow-[0_6px_0_0_rgba(0,0,0,0.15)] active:-translate-y-0 active:shadow-[0_0px_0_0_rgba(0,0,0,0.15)] transition-all duration-200 inline-block" href="register.html">Sign Up</a>
+<a class="login-btn font-label-md text-label-md border-2 border-primary text-primary dark:border-primary-fixed dark:text-primary-fixed px-6 py-1.5 rounded-full hover:bg-primary hover:text-on-primary dark:hover:bg-primary-fixed dark:hover:text-on-primary-fixed transition-all duration-200 inline-block" href="login.html">Login</a>
+<a class="signup-cta font-label-md text-label-md bg-primary-container text-on-primary-container px-6 py-2 rounded-full transition-all duration-200 inline-block" href="register.html">Sign Up</a>
 </div>
 </nav>
 <!-- Mobile Header (Trigger for SideNav) -->
-<header class="lg:hidden fixed top-0 left-0 w-full z-40 bg-surface/90 backdrop-blur-md shadow-sm h-16 flex items-center justify-between px-margin-mobile">
+<header id="mobile-header" class="lg:hidden fixed top-0 left-0 w-full z-40 bg-surface/90 backdrop-blur-md shadow-sm h-16 flex items-center justify-between px-margin-mobile">
 <div class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary flex items-center gap-2">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
 ZestUp
@@ -251,34 +251,34 @@ ZestUp
 </button>
 </div>
 <nav class="flex-1 overflow-y-auto py-4 font-label-md text-label-md">
-<a class="flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="index.html">
+<a class="mobile-nav-link flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="index.html">
 <span class="material-symbols-outlined">home</span>
                 Home
-            </a><a class="flex items-center gap-4 text-primary dark:text-inverse-primary bg-surface-variant dark:bg-on-surface-variant/10 px-4 py-3 mx-2 rounded-xl transition-colors font-bold" href="about.html">
+            </a><a class="mobile-nav-link flex items-center gap-4 text-primary dark:text-inverse-primary bg-surface-variant dark:bg-on-surface-variant/10 px-4 py-3 mx-2 rounded-xl transition-colors font-bold" href="about.html">
 <span class="material-symbols-outlined">info</span>
                 Home 2
             </a>
-<a class="flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="menu.html">
+<a class="mobile-nav-link flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="menu.html">
 <span class="material-symbols-outlined">restaurant_menu</span>
                 Menu
             </a>
-<a class="flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="services.html">
+<a class="mobile-nav-link flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="services.html">
 <span class="material-symbols-outlined">event_repeat</span>
                 Services
             </a>
-<a class="flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="gallery.html">
+<a class="mobile-nav-link flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="gallery.html">
 <span class="material-symbols-outlined">photo_library</span>
                 Gallery
             </a>
-<a class="flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="blog.html">
+<a class="mobile-nav-link flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="blog.html">
 <span class="material-symbols-outlined">article</span>
                 Blog
             </a>
-<a class="flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="contact.html">
+<a class="mobile-nav-link flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="contact.html">
 <span class="material-symbols-outlined">contact_support</span>
                 Contact
             </a>
-<div class="mt-8 pt-4 border-t border-outline-variant/30">
+<div class="mobile-nav-extra mt-8 pt-4 border-t border-outline-variant/30">
 <a class="flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant/10 rounded-xl transition-colors" href="#">
 <span class="material-symbols-outlined">settings</span>
                     Settings
@@ -609,4 +609,7 @@ ZestUp
             }
         });
     </script>
+<script src="nav-animations.js" defer></script>
+
+
 </body></html>
