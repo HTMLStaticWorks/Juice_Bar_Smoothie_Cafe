@@ -290,168 +290,202 @@ ZestUp
 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
 <input class="w-full pl-12 pr-4 py-3 rounded-full border-2 border-outline bg-surface-container-lowest focus:border-secondary-container focus:ring-0 focus:outline-none transition-colors font-body-md text-body-md text-on-surface" placeholder="Search articles..." type="text"/>
 </div>
-<div class="flex flex-wrap justify-center gap-3">
-<button class="px-4 py-2 rounded-full font-label-md text-label-md bg-primary text-on-primary hover:scale-105 transition-transform duration-200">All</button>
-<button class="px-4 py-2 rounded-full font-label-md text-label-md border-2 border-primary text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors">Nutrition</button>
-<button class="px-4 py-2 rounded-full font-label-md text-label-md border-2 border-primary text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors">Recipes</button>
-<button class="px-4 py-2 rounded-full font-label-md text-label-md border-2 border-primary text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors">Wellness Tips</button>
-<button class="px-4 py-2 rounded-full font-label-md text-label-md border-2 border-primary text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors">News</button>
-</div>
-</div>
-</header>
-<!-- Bento Grid Blog Layout -->
-<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-16">
-<!-- Featured Post (Spans 8 cols) -->
-<article class="md:col-span-8 bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30">
-<div class="h-64 md:h-80 w-full relative">
-<img class="w-full h-full object-cover" data-alt="A beautifully styled overhead shot of a vibrant green smoothie bowl topped with fresh kiwi, chia seeds, and coconut flakes, sitting on a natural wood table next to a small potted plant. The lighting is bright and airy, characteristic of a high-end wellness cafe, with a pristine, fresh aesthetic." src="https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?q=80&w=800"/>
-<div class="absolute top-4 left-4 bg-tertiary text-on-tertiary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm">Nutrition</div>
-</div>
-<div class="p-6 md:p-8 flex-grow flex flex-col justify-center items-center text-center">
-<h2 class="font-headline-lg text-headline-md md:text-headline-lg text-primary mb-3">The Power of Chlorophyll: Why Green Means Go</h2>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">Discover the incredible detoxifying and energizing benefits of chlorophyll-rich foods. We dive into the science behind our signature Green Glow juice and how it supports your daily vitality.</p>
-<span class="font-label-md text-label-md text-primary font-bold hover:text-primary-fixed mt-auto">Read Article →</span>
-</div>
-</article>
-<!-- Secondary Post (Spans 4 cols) -->
-<article class="md:col-span-4 bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30">
-<div class="h-48 w-full relative">
-<img class="w-full h-full object-cover" data-alt="A close up shot of a perfectly layered acai bowl in a clear glass jar, showing vibrant purple acai base, homemade granola, fresh berries, and a drizzle of almond butter. Shot in a bright, modern light-mode setting with soft morning sunlight highlighting the textures." src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?q=80&w=800"/>
-<div class="absolute top-4 left-4 bg-tertiary text-on-tertiary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm">Recipes</div>
-</div>
-<div class="p-6 flex-grow flex flex-col justify-center items-center text-center">
-<h3 class="font-headline-md text-headline-md text-primary mb-3">5-Minute Acai Bowl Perfection</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Master the art of the perfect texture and topping ratio for your morning acai bowl at home.</p>
-<span class="font-label-md text-label-md text-primary font-bold hover:text-primary-fixed mt-auto">Read Article →</span>
-</div>
-</article>
-<!-- Standard Grid Posts -->
-<article class="md:col-span-4 bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30">
-<div class="h-48 w-full relative">
-<img class="w-full h-full object-cover" data-alt="A serene yoga setting showing a person meditating by a large window with natural light pouring in. Beside them is a tall glass of bright orange cold-pressed juice on a sleek, minimal white side table. The mood is calm, focusing on holistic wellness." src="https://images.unsplash.com/photo-1556881286-fc6915169721?q=80&w=800"/>
-<div class="absolute top-4 left-4 bg-tertiary text-on-tertiary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm">Wellness Tips</div>
-</div>
-<div class="p-6 flex-grow flex flex-col justify-center items-center text-center">
-<h3 class="font-headline-md text-headline-md text-primary mb-3">Morning Rituals for Sustained Energy</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Start your day right with simple mindful practices paired with the perfect hydration strategy.</p>
-<span class="font-label-md text-label-md text-primary font-bold hover:text-primary-fixed mt-auto">Read Article →</span>
-</div>
-</article>
-<article class="md:col-span-4 bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30">
-<div class="h-48 w-full relative">
-<img class="w-full h-full object-cover" data-alt="A vibrant shot of fresh, whole produce including bright oranges, leafy kale, deep red beets, and crisp apples arranged symmetrically on a clean, light marble countertop. The image highlights the premium, organic quality of raw ingredients used in juicing." src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?q=80&w=800"/>
-<div class="absolute top-4 left-4 bg-tertiary text-on-tertiary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm">Nutrition</div>
-</div>
-<div class="p-6 flex-grow flex flex-col justify-center items-center text-center">
-<h3 class="font-headline-md text-headline-md text-primary mb-3">Seasonal Ingredients You Need Now</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Why eating with the seasons matters for your nutrient intake and overall health.</p>
-<span class="font-label-md text-label-md text-primary font-bold hover:text-primary-fixed mt-auto">Read Article →</span>
-</div>
-</article>
-<article class="md:col-span-4 bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30">
-<div class="h-48 w-full relative">
-<img class="w-full h-full object-cover" data-alt="A wide shot of a modern, beautifully designed juice bar interior. It features light wood accents, hanging green plants, and a bright, clean white counter. Customers are happily chatting while holding their colorful juice bottles. The aesthetic is premium, fresh, and welcoming." src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?q=80&w=800"/>
-<div class="absolute top-4 left-4 bg-tertiary text-on-tertiary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm">News</div>
-</div>
-<div class="p-6 flex-grow flex flex-col justify-center items-center text-center">
-<h3 class="font-headline-md text-headline-md text-primary mb-3">New Location Opening Downtown</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">We are expanding! Come celebrate the grand opening of our newest cafe next week.</p>
-<span class="font-label-md text-label-md text-primary font-bold hover:text-primary-fixed mt-auto">Read Article →</span>
-</div>
-</article>
-</div>
-<!-- Trending Now -->
-<section class="mb-16">
-<h2 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary mb-8 text-center">Trending Now</h2>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
-<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30">
-<div class="p-6 flex-grow flex flex-col justify-center items-center text-center">
-<span class="bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm mb-4">Trending</span>
-<h3 class="font-headline-md text-headline-md text-primary mb-3">The Ultimate Post-Workout Shake</h3>
-<div class="flex items-center gap-1 text-on-surface-variant font-label-md text-label-md mt-auto">
-<span class="material-symbols-outlined text-[16px]">visibility</span> 12.4k Views
+          <div class="flex flex-wrap justify-center gap-3" id="blog-category-tabs">
+            <button class="blog-tab-btn px-5 py-2 rounded-full font-label-md text-label-md border-2 border-primary bg-primary text-on-primary hover:scale-105 transition-all duration-200 shadow-sm" data-category="all">All</button>
+            <button class="blog-tab-btn px-5 py-2 rounded-full font-label-md text-label-md border-2 border-primary text-primary hover:bg-primary-container hover:text-on-primary-container transition-all duration-200" data-category="Nutrition">Nutrition</button>
+            <button class="blog-tab-btn px-5 py-2 rounded-full font-label-md text-label-md border-2 border-primary text-primary hover:bg-primary-container hover:text-on-primary-container transition-all duration-200" data-category="Recipes">Recipes</button>
+            <button class="blog-tab-btn px-5 py-2 rounded-full font-label-md text-label-md border-2 border-primary text-primary hover:bg-primary-container hover:text-on-primary-container transition-all duration-200" data-category="Wellness Tips">Wellness Tips</button>
+            <button class="blog-tab-btn px-5 py-2 rounded-full font-label-md text-label-md border-2 border-primary text-primary hover:bg-primary-container hover:text-on-primary-container transition-all duration-200" data-category="News">News</button>
+          </div>
+        </div>
+      </header>
+      <!-- Bento Grid Blog Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-16">
+        <!-- Featured Post (Spans 8 cols) -->
+        <article class="blog-card md:col-span-8 bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30 h-full" data-category="Nutrition">
+          <div class="h-64 md:h-80 w-full relative shrink-0">
+            <img class="w-full h-full object-cover" data-alt="A beautifully styled overhead shot of a vibrant green smoothie bowl topped with fresh kiwi, chia seeds, and coconut flakes, sitting on a natural wood table next to a small potted plant. The lighting is bright and airy, characteristic of a high-end wellness cafe, with a pristine, fresh aesthetic." src="https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?q=80&w=800"/>
+            <div class="absolute top-4 left-4 bg-tertiary text-on-tertiary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm">Nutrition</div>
+          </div>
+          <div class="p-6 md:p-8 flex-grow flex flex-col justify-between items-center text-center">
+            <div>
+              <h2 class="font-headline-lg text-headline-md md:text-headline-lg text-primary mb-3">The Power of Chlorophyll: Why Green Means Go</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">Discover the incredible detoxifying and energizing benefits of chlorophyll-rich foods. We dive into the science behind our signature Green Glow juice and how it supports your daily vitality.</p>
             </div>
-</div>
-</article>
-<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30">
-<div class="p-6 flex-grow flex flex-col justify-center items-center text-center">
-<span class="bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm mb-4">Trending</span>
-<h3 class="font-headline-md text-headline-md text-primary mb-3">5 Immune-Boosting Juices</h3>
-<div class="flex items-center gap-1 text-on-surface-variant font-label-md text-label-md mt-auto">
-<span class="material-symbols-outlined text-[16px]">visibility</span> 9.8k Views
+            <span class="font-label-md text-label-md text-primary font-bold hover:text-primary-fixed mt-auto pt-2">Read Article →</span>
+          </div>
+        </article>
+        <!-- Secondary Post (Spans 4 cols) -->
+        <article class="blog-card md:col-span-4 bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30 h-full" data-category="Recipes">
+          <div class="h-48 w-full relative shrink-0">
+            <img class="w-full h-full object-cover" data-alt="A close up shot of a perfectly layered acai bowl in a clear glass jar, showing vibrant purple acai base, homemade granola, fresh berries, and a drizzle of almond butter. Shot in a bright, modern light-mode setting with soft morning sunlight highlighting the textures." src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?q=80&w=800"/>
+            <div class="absolute top-4 left-4 bg-tertiary text-on-tertiary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm">Recipes</div>
+          </div>
+          <div class="p-6 flex-grow flex flex-col justify-between items-center text-center">
+            <div>
+              <h3 class="font-headline-md text-headline-md text-primary mb-3">5-Minute Acai Bowl Perfection</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Master the art of the perfect texture and topping ratio for your morning acai bowl at home.</p>
             </div>
-</div>
-</article>
-<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30">
-<div class="p-6 flex-grow flex flex-col justify-center items-center text-center">
-<span class="bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm mb-4">Trending</span>
-<h3 class="font-headline-md text-headline-md text-primary mb-3">Understanding Macros in Smoothies</h3>
-<div class="flex items-center gap-1 text-on-surface-variant font-label-md text-label-md mt-auto">
-<span class="material-symbols-outlined text-[16px]">visibility</span> 8.2k Views
+            <span class="font-label-md text-label-md text-primary font-bold hover:text-primary-fixed mt-auto pt-2">Read Article →</span>
+          </div>
+        </article>
+        <!-- Standard Grid Posts -->
+        <article class="blog-card md:col-span-4 bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30 h-full" data-category="Wellness Tips">
+          <div class="h-48 w-full relative shrink-0">
+            <img class="w-full h-full object-cover" data-alt="A serene yoga setting showing a person meditating by a large window with natural light pouring in. Beside them is a tall glass of bright orange cold-pressed juice on a sleek, minimal white side table. The mood is calm, focusing on holistic wellness." src="https://images.unsplash.com/photo-1556881286-fc6915169721?q=80&w=800"/>
+            <div class="absolute top-4 left-4 bg-tertiary text-on-tertiary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm">Wellness Tips</div>
+          </div>
+          <div class="p-6 flex-grow flex flex-col justify-between items-center text-center">
+            <div>
+              <h3 class="font-headline-md text-headline-md text-primary mb-3">Morning Rituals for Sustained Energy</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Start your day right with simple mindful practices paired with the perfect hydration strategy.</p>
             </div>
-</div>
-</article>
-<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30">
-<div class="p-6 flex-grow flex flex-col justify-center items-center text-center">
-<span class="bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm mb-4">Trending</span>
-<h3 class="font-headline-md text-headline-md text-primary mb-3">Guide to Matcha Alternatives</h3>
-<div class="flex items-center gap-1 text-on-surface-variant font-label-md text-label-md mt-auto">
-<span class="material-symbols-outlined text-[16px]">visibility</span> 7.5k Views
+            <span class="font-label-md text-label-md text-primary font-bold hover:text-primary-fixed mt-auto pt-2">Read Article →</span>
+          </div>
+        </article>
+        <article class="blog-card md:col-span-4 bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30 h-full" data-category="Nutrition">
+          <div class="h-48 w-full relative shrink-0">
+            <img class="w-full h-full object-cover" data-alt="A vibrant shot of fresh, whole produce including bright oranges, leafy kale, deep red beets, and crisp apples arranged symmetrically on a clean, light marble countertop. The image highlights the premium, organic quality of raw ingredients used in juicing." src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?q=80&w=800"/>
+            <div class="absolute top-4 left-4 bg-tertiary text-on-tertiary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm">Nutrition</div>
+          </div>
+          <div class="p-6 flex-grow flex flex-col justify-between items-center text-center">
+            <div>
+              <h3 class="font-headline-md text-headline-md text-primary mb-3">Seasonal Ingredients You Need Now</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Why eating with the seasons matters for your nutrient intake and overall health.</p>
             </div>
-</div>
-</article>
-</div>
-</section>
-<!-- Wellness Resource Center -->
-<section class="mb-16">
-<h2 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary mb-8 text-center">Wellness Resource Center</h2>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-<div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-6 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 border border-outline-variant/30 cursor-pointer">
-<div class="w-16 h-16 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-3xl">picture_as_pdf</span>
-</div>
-<div>
-<h3 class="font-headline-md text-headline-md text-primary mb-2">7-Day Detox Guide</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-4">Jumpstart your wellness journey with our free comprehensive weekly guide.</p>
-<span class="font-label-md text-label-md text-primary font-bold hover:text-primary-fixed">Download Free PDF</span>
-</div>
-</div>
-<div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-6 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 border border-outline-variant/30 cursor-pointer">
-<div class="w-16 h-16 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-3xl">menu_book</span>
-</div>
-<div>
-<h3 class="font-headline-md text-headline-md text-primary mb-2">Superfood Smoothie Recipes</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-4">Over 20+ delicious recipes you can easily make right at home.</p>
-<span class="font-label-md text-label-md text-primary font-bold hover:text-primary-fixed">Download E-Book</span>
-</div>
-</div>
-</div>
-</section>
-<!-- Meet the Experts -->
-<section class="mb-16">
-<h2 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary mb-8 text-center">Meet the Experts</h2>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-<div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col items-center text-center shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 border border-outline-variant/30">
-<img src="images/sarah.png" alt="Dr. Sarah Jenkins" class="w-24 h-24 rounded-full object-cover border-4 border-primary-container mb-4 shadow-sm" />
-<h3 class="font-headline-md text-headline-md text-primary mb-1">Dr. Sarah Jenkins</h3>
-<p class="font-label-md text-label-md text-tertiary mb-3">Registered Dietitian</p>
-<p class="font-body-md text-body-md text-on-surface-variant">Specializing in plant-based nutrition and sustainable eating habits for over 10 years.</p>
-</div>
-<div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col items-center text-center shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 border border-outline-variant/30">
-<img src="images/mark.png" alt="Mark O'Connor" class="w-24 h-24 rounded-full object-cover border-4 border-primary-container mb-4 shadow-sm" />
-<h3 class="font-headline-md text-headline-md text-primary mb-1">Mark O'Connor</h3>
-<p class="font-label-md text-label-md text-tertiary mb-3">Holistic Wellness Coach</p>
-<p class="font-body-md text-body-md text-on-surface-variant">Helping individuals find balance through mindful movement and holistic nutrition.</p>
-</div>
-<div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col items-center text-center shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 border border-outline-variant/30">
-<img src="images/elena.png" alt="Elena Rostova" class="w-24 h-24 rounded-full object-cover border-4 border-primary-container mb-4 shadow-sm" />
-<h3 class="font-headline-md text-headline-md text-primary mb-1">Elena Rostova</h3>
-<p class="font-label-md text-label-md text-tertiary mb-3">Sports Nutritionist</p>
-<p class="font-body-md text-body-md text-on-surface-variant">Optimizing athletic performance and recovery through targeted dietary strategies.</p>
-</div>
-</div>
-</section>
+            <span class="font-label-md text-label-md text-primary font-bold hover:text-primary-fixed mt-auto pt-2">Read Article →</span>
+          </div>
+        </article>
+        <article class="blog-card md:col-span-4 bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30 h-full" data-category="News">
+          <div class="h-48 w-full relative shrink-0">
+            <img class="w-full h-full object-cover" data-alt="A wide shot of a modern, beautifully designed juice bar interior. It features light wood accents, hanging green plants, and a bright, clean white counter. Customers are happily chatting while holding their colorful juice bottles. The aesthetic is premium, fresh, and welcoming." src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?q=80&w=800"/>
+            <div class="absolute top-4 left-4 bg-tertiary text-on-tertiary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm">News</div>
+          </div>
+          <div class="p-6 flex-grow flex flex-col justify-between items-center text-center">
+            <div>
+              <h3 class="font-headline-md text-headline-md text-primary mb-3">New Location Opening Downtown</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">We are expanding! Come celebrate the grand opening of our newest cafe next week.</p>
+            </div>
+            <span class="font-label-md text-label-md text-primary font-bold hover:text-primary-fixed mt-auto pt-2">Read Article →</span>
+          </div>
+        </article>
+      </div>
+      <!-- Trending Now -->
+      <section class="mb-16">
+        <h2 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary mb-8 text-center">Trending Now</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+          <article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30 h-full">
+            <div class="p-6 flex-grow flex flex-col justify-between items-center text-center">
+              <div>
+                <span class="bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm mb-4 inline-block">Trending</span>
+                <h3 class="font-headline-md text-headline-md text-primary mb-3">The Ultimate Post-Workout Shake</h3>
+              </div>
+              <div class="flex items-center gap-1 text-on-surface-variant font-label-md text-label-md mt-auto pt-2">
+                <span class="material-symbols-outlined text-[16px]">visibility</span> 12.4k Views
+              </div>
+            </div>
+          </article>
+          <article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30 h-full">
+            <div class="p-6 flex-grow flex flex-col justify-between items-center text-center">
+              <div>
+                <span class="bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm mb-4 inline-block">Trending</span>
+                <h3 class="font-headline-md text-headline-md text-primary mb-3">5 Immune-Boosting Juices</h3>
+              </div>
+              <div class="flex items-center gap-1 text-on-surface-variant font-label-md text-label-md mt-auto pt-2">
+                <span class="material-symbols-outlined text-[16px]">visibility</span> 9.8k Views
+              </div>
+            </div>
+          </article>
+          <article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30 h-full">
+            <div class="p-6 flex-grow flex flex-col justify-between items-center text-center">
+              <div>
+                <span class="bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm mb-4 inline-block">Trending</span>
+                <h3 class="font-headline-md text-headline-md text-primary mb-3">Understanding Macros in Smoothies</h3>
+              </div>
+              <div class="flex items-center gap-1 text-on-surface-variant font-label-md text-label-md mt-auto pt-2">
+                <span class="material-symbols-outlined text-[16px]">visibility</span> 8.2k Views
+              </div>
+            </div>
+          </article>
+          <article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col cursor-pointer border border-outline-variant/30 h-full">
+            <div class="p-6 flex-grow flex flex-col justify-between items-center text-center">
+              <div>
+                <span class="bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-md text-label-md shadow-sm mb-4 inline-block">Trending</span>
+                <h3 class="font-headline-md text-headline-md text-primary mb-3">Guide to Matcha Alternatives</h3>
+              </div>
+              <div class="flex items-center gap-1 text-on-surface-variant font-label-md text-label-md mt-auto pt-2">
+                <span class="material-symbols-outlined text-[16px]">visibility</span> 7.5k Views
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <!-- Wellness Resource Center -->
+      <section class="mb-16">
+        <h2 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary mb-8 text-center">Wellness Resource Center</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-stretch">
+          <div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col md:flex-row items-center md:items-stretch text-center md:text-left gap-6 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 border border-outline-variant/30 cursor-pointer h-full">
+            <div class="w-16 h-16 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0 self-center md:self-start">
+              <span class="material-symbols-outlined text-3xl">picture_as_pdf</span>
+            </div>
+            <div class="flex-1 flex flex-col justify-between self-stretch h-full min-h-full py-1">
+              <div>
+                <h3 class="font-headline-md text-headline-md text-primary mb-2">7-Day Detox Guide</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-4">Jumpstart your wellness journey with our free comprehensive weekly guide.</p>
+              </div>
+              <a href="#" class="font-label-md text-label-md text-primary font-bold hover:text-primary-fixed mt-auto inline-flex items-center justify-center md:justify-start gap-1.5 pt-2">
+                Download Free PDF
+                <span class="material-symbols-outlined text-lg">download</span>
+              </a>
+            </div>
+          </div>
+          <div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col md:flex-row items-center md:items-stretch text-center md:text-left gap-6 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 border border-outline-variant/30 cursor-pointer h-full">
+            <div class="w-16 h-16 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0 self-center md:self-start">
+              <span class="material-symbols-outlined text-3xl">menu_book</span>
+            </div>
+            <div class="flex-1 flex flex-col justify-between self-stretch h-full min-h-full py-1">
+              <div>
+                <h3 class="font-headline-md text-headline-md text-primary mb-2">Superfood Smoothie Recipes</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-4">Over 20+ delicious recipes you can easily make right at home.</p>
+              </div>
+              <a href="#" class="font-label-md text-label-md text-primary font-bold hover:text-primary-fixed mt-auto inline-flex items-center justify-center md:justify-start gap-1.5 pt-2">
+                Download E-Book
+                <span class="material-symbols-outlined text-lg">download</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Meet the Experts -->
+      <section class="mb-16">
+        <h2 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary mb-8 text-center">Meet the Experts</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter items-stretch">
+          <div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col items-center text-center shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 border border-outline-variant/30 h-full justify-between">
+            <div class="flex flex-col items-center">
+              <img src="images/sarah.png" alt="Dr. Sarah Jenkins" class="w-24 h-24 rounded-full object-cover border-4 border-primary-container mb-4 shadow-sm" />
+              <h3 class="font-headline-md text-headline-md text-primary mb-1">Dr. Sarah Jenkins</h3>
+              <p class="font-label-md text-label-md text-tertiary mb-3">Registered Dietitian</p>
+            </div>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-auto">Specializing in plant-based nutrition and sustainable eating habits for over 10 years.</p>
+          </div>
+          <div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col items-center text-center shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 border border-outline-variant/30 h-full justify-between">
+            <div class="flex flex-col items-center">
+              <img src="images/mark.png" alt="Mark O'Connor" class="w-24 h-24 rounded-full object-cover border-4 border-primary-container mb-4 shadow-sm" />
+              <h3 class="font-headline-md text-headline-md text-primary mb-1">Mark O'Connor</h3>
+              <p class="font-label-md text-label-md text-tertiary mb-3">Holistic Wellness Coach</p>
+            </div>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-auto">Helping individuals find balance through mindful movement and holistic nutrition.</p>
+          </div>
+          <div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col items-center text-center shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 border border-outline-variant/30 h-full justify-between">
+            <div class="flex flex-col items-center">
+              <img src="images/elena.png" alt="Elena Rostova" class="w-24 h-24 rounded-full object-cover border-4 border-primary-container mb-4 shadow-sm" />
+              <h3 class="font-headline-md text-headline-md text-primary mb-1">Elena Rostova</h3>
+              <p class="font-label-md text-label-md text-tertiary mb-3">Sports Nutritionist</p>
+            </div>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-auto">Optimizing athletic performance and recovery through targeted dietary strategies.</p>
+          </div>
+        </div>
+      </section>
 <!-- Pagination -->
 <div class="flex justify-center items-center gap-2 mt-12">
 <button class="w-10 h-10 rounded-full flex items-center justify-center border border-outline-variant text-on-surface-variant hover:bg-surface-variant transition-colors">
@@ -592,6 +626,35 @@ ZestUp
                 mobileMenuBtn.addEventListener('click', toggleMenu);
                 closeMenuBtn.addEventListener('click', toggleMenu);
             }
+        });
+    </script>
+
+    <!-- Category Tab Filtering Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabBtns = document.querySelectorAll('.blog-tab-btn');
+            const articles = document.querySelectorAll('.blog-card');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabBtns.forEach(b => {
+                        b.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+                        b.classList.add('text-primary', 'hover:bg-primary-container', 'hover:text-on-primary-container');
+                    });
+                    btn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+                    btn.classList.remove('text-primary', 'hover:bg-primary-container', 'hover:text-on-primary-container');
+
+                    const selectedCategory = btn.getAttribute('data-category');
+                    articles.forEach(article => {
+                        const articleCategory = article.getAttribute('data-category');
+                        if (selectedCategory === 'all' || articleCategory === selectedCategory) {
+                            article.style.display = '';
+                        } else {
+                            article.style.display = 'none';
+                        }
+                    });
+                });
+            });
         });
     </script>
 <script src="nav-animations.js" defer></script>
